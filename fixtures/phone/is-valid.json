@@ -1,0 +1,11 @@
+{
+  "function": "phone.isValid",
+  "status": "active",
+  "cases": [
+    { "name": "valid national", "input": "06 123 45 67", "expected": true },
+    { "name": "valid E.164", "input": "+242059876543", "expected": true },
+    { "name": "wrong length", "input": "06 123 45", "expected": false },
+    { "name": "foreign", "input": "+33612345678", "expected": false },
+    { "name": "empty", "input": "", "expected": false }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "function": "phone.format",
+  "status": "active",
+  "description": "Second argument (`options`) is the style: national | international | e164.",
+  "cases": [
+    { "name": "national", "input": "+242061234567", "options": "national", "expected": "06 123 45 67" },
+    { "name": "international", "input": "061234567", "options": "international", "expected": "+242 06 123 45 67" },
+    { "name": "e164", "input": "06 123 45 67", "options": "e164", "expected": "+242061234567" },
+    { "name": "invalid number throws", "input": "123", "options": "national", "expectedError": true },
+    { "name": "unknown style throws", "input": "061234567", "options": "local", "expectedError": true }
+  ]
+}
