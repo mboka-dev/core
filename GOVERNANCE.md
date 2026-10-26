@@ -7,7 +7,7 @@
 | **Contributeur** | Toute personne ayant une PR fusionnée | Ouvre des issues et des PR, commente, relit (revue non bloquante) |
 | **Relecteur** | Contributeur avec au moins 3 PR fusionnées, proposé par un mainteneur | Revue approuvante sur son domaine (`data`, `js`, `python`, `docs`), tri des issues |
 | **Mainteneur** | Noyau : équipe pédagogique + 2 à 3 apprenants en rotation | Fusionne, gère les milestones, publie les releases, fait respecter le code de conduite |
-| **Propriétaire** | Euloge, initiateur du projet (au moins 2 comptes admin des organisation GitHub `mboka-dev`, de l'organisation npm `mboka` et du projet PyPI `mboka`) | Paramètres des dépôts, secrets de publication, noms de paquets, création de nouveaux projets sous `mboka-dev` |
+| **Propriétaire** | Euloge, initiateur du projet (au moins 2 comptes admin des organisation GitHub `mboka-dev`, de l'organisation npm `mboka-dev` et du projet PyPI `mboka`) | Paramètres des dépôts, secrets de publication, noms de paquets, création de nouveaux projets sous `mboka-dev` |
 
 Les domaines de revue sont déclarés dans [`.github/CODEOWNERS`](.github/CODEOWNERS).
 

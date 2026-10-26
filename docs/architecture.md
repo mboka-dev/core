@@ -11,7 +11,7 @@ core/  (github.com/mboka-dev/core)
 ├── fixtures/                 ← cas de test partagés : entrée → sortie attendue
 │   ├── phone/  money/  text/  geo/
 ├── packages/
-│   ├── js/                   ← @mboka/core (TypeScript)
+│   ├── js/                   ← @mboka-dev/core (TypeScript)
 │   │   ├── src/              ← code
 │   │   │   └── generated/data.ts ← GÉNÉRÉ depuis /data (ne pas éditer)
 │   │   └── test/             ← lance les fixtures

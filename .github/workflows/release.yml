@@ -49,9 +49,9 @@ jobs:
         id: check
         run: |
           V=$(node -p "require('./packages/js/package.json').version")
-          if npm view "@mboka/core@$V" version >/dev/null 2>&1; then
+          if npm view "@mboka-dev/core@$V" version >/dev/null 2>&1; then
             echo "skip=true" >> "$GITHUB_OUTPUT"
-            echo "@mboka/core@$V is already published, skipping."
+            echo "@mboka-dev/core@$V is already published, skipping."
           fi
       # No token: npm trusts this workflow through OIDC (configured on npmjs.com).
       # Provenance is added automatically.

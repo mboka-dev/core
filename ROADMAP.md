@@ -14,7 +14,7 @@ Objectif : un dépôt prêt à accueillir des contributeurs. Un dépôt vide n'a
 - [x] Créer le dépôt public `mboka-dev/core`
 - [ ] Pousser ce squelette, activer la protection de `main` (1 revue, CI verte, historique linéaire)
 - [ ] Créer les labels (`scripts/create-labels.sh`) et les issues de départ (`scripts/create-issues.sh`)
-- [ ] Créer l'organisation npm `mboka` (scope `@mboka`) et publier `@mboka/core` 0.0.1 depuis ce dépôt
+- [ ] Créer l'organisation npm `mboka-dev` (scope `@mboka-dev`) et publier `@mboka-dev/core` 0.0.1 depuis ce dépôt
 - [ ] Publier `mboka` 0.0.1 sur PyPI depuis ce dépôt
 - [ ] Configurer la publication : jeton npm avec provenance, *trusted publishing* PyPI
 - [ ] Nommer le premier noyau de mainteneurs (voir [GOVERNANCE.md](GOVERNANCE.md))

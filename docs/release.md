@@ -27,5 +27,5 @@ Le workflow de release lance `npm run validate -- --strict` : il échoue s'il re
 
 ## En cas d'erreur de publication
 
-- npm : `npm deprecate @mboka/core@x.y.z "raison"` puis publier une correction. Ne pas utiliser `unpublish`.
+- npm : `npm deprecate @mboka-dev/core@x.y.z "raison"` puis publier une correction. Ne pas utiliser `unpublish`.
 - PyPI : marquer la version comme *yanked* depuis l'interface, puis publier une correction.

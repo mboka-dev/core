@@ -22,7 +22,7 @@ pip install mboka
 ### JavaScript / TypeScript
 
 ```ts
-import { phone, money, geo, text } from '@mboka/core';
+import { phone, money, geo, text } from '@mboka-dev/core';
 
 phone.parse('06 123 45 67');
 // { valid: true, e164: '+242061234567', national: '06 123 45 67',
