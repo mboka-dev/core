@@ -12,9 +12,11 @@
     "validate": "node scripts/validate-data.mjs",
     "sync": "node scripts/sync-data.mjs",
     "typecheck": "npm run typecheck -w packages/js",
+    "build": "npm run build -w packages/js",
     "test:js": "npm test -w packages/js",
     "test:py": "cd packages/py && python -m pytest -q",
-    "check": "npm run validate && npm run sync -- --check && npm run typecheck && npm run test:js && npm run test:py"
+    "check": "npm run validate && npm run sync -- --check && npm run typecheck && npm run test:js && npm run test:py",
+    "version:set": "node scripts/set-version.mjs"
   },
   "devDependencies": {
     "ajv": "^8.17.1",
