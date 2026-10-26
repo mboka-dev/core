@@ -13,3 +13,8 @@ Toutes les évolutions notables sont consignées ici. Format inspiré de [Keep a
 - `text.normalize`.
 - `geo.departements`, `geo.communes`, `geo.arrondissements`, `geo.find` (correspondance exacte).
 - Fixtures en attente pour `money.toWords`.
+
+## [0.0.2] - 26 Oct. 2026
+
+### Modifié
+- Première version publiée depuis GitHub Actions : provenance npm vérifiable, aucun changement de code.

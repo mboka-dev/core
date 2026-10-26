@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mboka"
-version = "0.0.1"
+version = "0.0.2"
 description = "Local data and helpers for Congo-Brazzaville: +242 phone numbers, administrative divisions, FCFA amounts."
 readme = "README.md"
 requires-python = ">=3.10"
