@@ -42,3 +42,21 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm run test:js
+
+  python:
+    name: Python ${{ matrix.python }}
+    needs: data
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10", "3.11", "3.12", "3.13"]
+    defaults:
+      run:
+        working-directory: packages/py
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -e ".[dev]"
+      - run: pytest -q
