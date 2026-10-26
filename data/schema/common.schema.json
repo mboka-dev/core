@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "common.schema.json",
+  "title": "Shared definitions",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Stable kebab-case identifier, never reused once published"
+    },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true,
+      "description": "Spelling variants found in real-world input (abbreviations, missing accents, common typos)"
+    },
+    "verification": {
+      "type": "object",
+      "required": ["status"],
+      "additionalProperties": false,
+      "properties": {
+        "status": { "enum": ["verifie", "a_verifier"] },
+        "source": { "type": "string", "minLength": 10 },
+        "sourceUrl": { "type": "string", "format": "uri" },
+        "verifiedAt": { "type": "string", "format": "date" },
+        "verifiedBy": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "if": { "properties": { "status": { "const": "verifie" } } },
+      "then": { "required": ["status", "source", "verifiedAt"] }
+    },
+    "validity": {
+      "type": "object",
+      "properties": {
+        "validFrom": { "type": "string", "format": "date" },
+        "validUntil": { "type": "string", "format": "date" },
+        "replacedBy": { "type": "array", "items": { "$ref": "#/$defs/id" } }
+      }
+    }
+  }
+}

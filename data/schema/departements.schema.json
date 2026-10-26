@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "departements.schema.json",
+  "title": "Départements",
+  "type": "object",
+  "required": ["items"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "nom", "aliases", "verification"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "nom": { "type": "string", "minLength": 2, "description": "Official name" },
+          "iso3166_2": { "type": "string", "pattern": "^CG-[A-Z0-9]{1,3}$" },
+          "chefLieu": { "type": "string" },
+          "aliases": { "$ref": "common.schema.json#/$defs/aliases" },
+          "validFrom": { "type": "string", "format": "date" },
+          "validUntil": { "type": "string", "format": "date" },
+          "replacedBy": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/id" } },
+          "verification": { "$ref": "common.schema.json#/$defs/verification" }
+        }
+      }
+    }
+  }
+}

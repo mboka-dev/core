@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "numerotation.schema.json",
+  "title": "Plan de numérotation +242",
+  "type": "object",
+  "required": ["countryCode", "nationalNumberLength", "verification", "prefixes"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "countryCode": { "const": "242" },
+    "nationalNumberLength": { "type": "integer", "minimum": 6, "maximum": 12 },
+    "nationalGrouping": {
+      "type": "array",
+      "items": { "type": "integer", "minimum": 1 },
+      "description": "Digit groups used for display, e.g. [2,3,2,2] -> 06 123 45 67"
+    },
+    "verification": { "$ref": "common.schema.json#/$defs/verification" },
+    "prefixes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["prefix", "type", "verification"],
+        "additionalProperties": false,
+        "properties": {
+          "prefix": { "type": "string", "pattern": "^[0-9]{1,4}$" },
+          "type": { "enum": ["mobile", "fixe", "special"] },
+          "operator": { "type": "string" },
+          "mobileMoney": { "type": "string", "description": "Mobile money service tied to the operator (v0.4)" },
+          "note": { "type": "string" },
+          "verification": { "$ref": "common.schema.json#/$defs/verification" }
+        }
+      }
+    }
+  }
+}
