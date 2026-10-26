@@ -1,0 +1,18 @@
+{
+  "function": "money.format",
+  "status": "active",
+  "description": "Thousands separator is U+202F (narrow no-break space); space before the label is U+00A0 (no-break space).",
+  "cases": [
+    { "name": "zero", "input": 0, "expected": "0 FCFA" },
+    { "name": "below a thousand", "input": 999, "expected": "999 FCFA" },
+    { "name": "one thousand", "input": 1000, "expected": "1 000 FCFA" },
+    { "name": "typical price", "input": 125000, "expected": "125 000 FCFA" },
+    { "name": "millions", "input": 1234567, "expected": "1 234 567 FCFA" },
+    { "name": "negative", "input": -1500, "expected": "-1 500 FCFA" },
+    { "name": "ISO label", "input": 125000, "options": { "label": "XAF" }, "expected": "125 000 XAF" },
+    { "name": "no label", "input": 125000, "options": { "label": "" }, "expected": "125 000" },
+    { "name": "plain space separator", "input": 125000, "options": { "separator": " " }, "expected": "125 000 FCFA" },
+    { "name": "decimals are rejected (XAF has no subunit)", "input": 12.5, "expectedError": true },
+    { "name": "string input throws", "input": "1000", "expectedError": true }
+  ]
+}
