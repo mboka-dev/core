@@ -1,0 +1,8 @@
+# Reviewers requested automatically per area.
+*                   @mboka-dev/maintainers
+/data/              @mboka-dev/data-reviewers
+/fixtures/          @mboka-dev/maintainers
+/packages/js/       @mboka-dev/js-reviewers
+/packages/py/       @mboka-dev/python-reviewers
+/docs/              @mboka-dev/docs-reviewers
+/.github/           @mboka-dev/maintainers
