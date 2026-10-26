@@ -1,0 +1,25 @@
+name: Proposition de fonctionnalité
+description: Une nouvelle fonction ou un nouveau jeu de données
+title: "[proposition] "
+labels: ["enhancement", "triage"]
+body:
+  - type: textarea
+    id: besoin
+    attributes:
+      label: Le besoin
+      description: Quel problème concret, pour quel développeur ? Un exemple d'application réelle aide beaucoup.
+    validations:
+      required: true
+  - type: textarea
+    id: api
+    attributes:
+      label: API proposée
+      description: Signature et 2 ou 3 exemples entrée → sortie. Ils deviendront des fixtures.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: donnees
+    attributes:
+      label: Données nécessaires et sources
+      description: Si la fonctionnalité demande des données, d'où viennent-elles ?

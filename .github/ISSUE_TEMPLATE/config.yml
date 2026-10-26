@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question ou discussion
+    url: https://github.com/mboka-dev/core/discussions
+    about: Pour une question d'utilisation ou une idée à débattre avant d'ouvrir une issue.

@@ -1,0 +1,41 @@
+name: Correction de données
+description: Une donnée est fausse, manquante ou périmée (préfixe, commune, nom…)
+title: "[données] "
+labels: ["data", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: "Merci ! Une correction sans source ne peut pas être acceptée : voir docs/sourcing-des-donnees.md."
+  - type: input
+    id: fichier
+    attributes:
+      label: Fichier et entrée concernés
+      placeholder: "data/phone/numerotation.json, préfixe 05"
+    validations:
+      required: true
+  - type: textarea
+    id: actuel
+    attributes:
+      label: Ce que contient le projet aujourd'hui
+    validations:
+      required: true
+  - type: textarea
+    id: correct
+    attributes:
+      label: Ce qui est correct
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: Référence précise (document, numéro, date, page) et lien si possible.
+    validations:
+      required: true
+  - type: checkboxes
+    id: perso
+    attributes:
+      label: Données personnelles
+      options:
+        - label: Ma demande ne contient aucune donnée personnelle (numéro réel, nom, adresse individuelle).
+          required: true

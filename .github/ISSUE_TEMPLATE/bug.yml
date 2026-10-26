@@ -1,0 +1,33 @@
+name: Bug
+description: Une fonction ne se comporte pas comme documenté
+title: "[bug] "
+labels: ["bug", "triage"]
+body:
+  - type: dropdown
+    id: paquet
+    attributes:
+      label: Paquet
+      options: ["JavaScript / TypeScript", "Python", "Les deux"]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Code pour reproduire
+      description: Le plus court possible. N'utilisez pas de vrai numéro de téléphone.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: attendu
+    attributes:
+      label: Résultat attendu / obtenu
+    validations:
+      required: true
