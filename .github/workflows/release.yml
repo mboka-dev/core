@@ -1,0 +1,72 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*.*.*"]
+
+permissions:
+  contents: write   # create the GitHub release
+  id-token: write   # npm provenance + PyPI trusted publishing
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: npm ci && pip install pytest
+      - name: Tag matches package versions
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          JS=$(node -p "require('./packages/js/package.json').version")
+          PY=$(grep -m1 '^version = ' packages/py/pyproject.toml | cut -d'"' -f2)
+          echo "tag=$TAG js=$JS py=$PY"
+          test "$TAG" = "$JS" && test "$TAG" = "$PY"
+      - name: Strict data check for stable releases (>= 1.0.0)
+        run: |
+          MAJOR="${GITHUB_REF_NAME#v}"; MAJOR="${MAJOR%%.*}"
+          if [ "$MAJOR" -ge 1 ]; then npm run validate -- --strict; else npm run validate; fi
+      - run: npm run check
+
+  npm:
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+      - run: npm ci
+      - run: npm publish -w packages/js --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  pypi:
+    needs: verify
+    runs-on: ubuntu-latest
+    environment: pypi
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install build && python -m build packages/py
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: packages/py/dist
+
+  github-release:
+    needs: [npm, pypi]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: gh release create "$GITHUB_REF_NAME" --generate-notes --verify-tag
+        env:
+          GH_TOKEN: ${{ github.token }}
