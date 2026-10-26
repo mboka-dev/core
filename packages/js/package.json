@@ -1,23 +1,61 @@
 {
-  "name": "mboka-core-monorepo",
-  "private": true,
-  "type": "module",
-  "workspaces": [
-    "packages/js"
+  "name": "@mboka/core",
+  "version": "0.0.0",
+  "description": "Local data and helpers for Congo-Brazzaville: +242 phone numbers, administrative divisions, FCFA amounts.",
+  "keywords": [
+    "congo",
+    "brazzaville",
+    "cg",
+    "phone",
+    "fcfa",
+    "xaf",
+    "geo",
+    "africa"
   ],
+  "license": "MIT",
+  "author": "Euloge and contributors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mboka-dev/core.git",
+    "directory": "packages/js"
+  },
+  "homepage": "https://github.com/mboka-dev/core#readme",
+  "bugs": "https://github.com/mboka-dev/core/issues",
+  "type": "module",
+  "sideEffects": false,
   "engines": {
     "node": ">=22"
   },
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "validate": "node scripts/validate-data.mjs",
-    "sync": "node scripts/sync-data.mjs",
-    "typecheck": "npm run typecheck -w packages/js",
-    "build": "npm run build -w packages/js",
-    "test:js": "npm test -w packages/js",
-    "check": "npm run validate && npm run sync -- --check && npm run typecheck && npm run test:js"
+    "build": "rm -rf dist && tsc -p tsconfig.build.json && tsc -p tsconfig.cjs.json && node -e \"require('fs').writeFileSync('dist/cjs/package.json', JSON.stringify({type:'commonjs'}))\"",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && node --test \"test/*.test.mjs\"",
+    "prepublishOnly": "npm test"
   },
   "devDependencies": {
-    "ajv": "^8.17.1",
-    "ajv-formats": "^3.0.1"
+    "@types/node": "^22.20.0",
+    "typescript": "^5.9.3"
   }
 }

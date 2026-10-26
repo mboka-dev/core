@@ -2,12 +2,18 @@
   "name": "mboka-core-monorepo",
   "private": true,
   "type": "module",
+  "workspaces": [
+    "packages/js"
+  ],
   "engines": {
     "node": ">=22"
   },
   "scripts": {
     "validate": "node scripts/validate-data.mjs",
-    "sync": "node scripts/sync-data.mjs"
+    "sync": "node scripts/sync-data.mjs",
+    "typecheck": "npm run typecheck -w packages/js",
+    "test:js": "npm test -w packages/js",
+    "check": "npm run validate && npm run sync -- --check && npm run typecheck && npm run test:js && npm run test:py"
   },
   "devDependencies": {
     "ajv": "^8.17.1",
