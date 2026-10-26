@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mboka"
+version = "0.0.0"
+description = "Local data and helpers for Congo-Brazzaville: +242 phone numbers, administrative divisions, FCFA amounts."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Akieni Academy and contributors" }]
+keywords = ["congo", "brazzaville", "phone", "fcfa", "xaf", "geo", "africa"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+  "Natural Language :: French",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.urls]
+Homepage = "https://github.com/mboka-dev/core"
+Issues = "https://github.com/mboka-dev/core/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mboka"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
