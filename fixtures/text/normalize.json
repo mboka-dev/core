@@ -1,0 +1,16 @@
+{
+  "function": "text.normalize",
+  "status": "active",
+  "description": "Lowercase, strip accents, turn any punctuation into a single space, trim.",
+  "cases": [
+    { "name": "hyphen", "input": "Pointe-Noire", "expected": "pointe noire" },
+    { "name": "case and whitespace", "input": "  BRAZZAVILLE ", "expected": "brazzaville" },
+    { "name": "accents", "input": "Ouésso", "expected": "ouesso" },
+    { "name": "apostrophe", "input": "l'Île", "expected": "l ile" },
+    { "name": "ligature", "input": "Cœur", "expected": "coeur" },
+    { "name": "repeated punctuation", "input": "Poto--Poto ..", "expected": "poto poto" },
+    { "name": "digits kept", "input": "Arrondissement 3", "expected": "arrondissement 3" },
+    { "name": "empty", "input": "", "expected": "" },
+    { "name": "non-string throws", "input": null, "expectedError": true }
+  ]
+}

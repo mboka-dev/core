@@ -1,0 +1,11 @@
+{
+  "function": "geo.find",
+  "status": "pending",
+  "description": "Exact match on normalized official name or alias. Activate once the matching data entries exist (issues #1, #8 and #9). Replace placeholder ids with the real ones.",
+  "cases": [
+    { "name": "official name", "input": "Pointe-Noire", "expected": { "nom": "Pointe-Noire" } },
+    { "name": "alias", "input": "Pte-Noire", "expected": { "nom": "Pointe-Noire" } },
+    { "name": "case and accents", "input": "BRAZZAVILLE", "expected": { "nom": "Brazzaville" } },
+    { "name": "unknown returns null", "input": "Atlantis", "expected": null }
+  ]
+}
