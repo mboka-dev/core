@@ -1,0 +1,24 @@
+{
+  "$schema": "../schema/numerotation.schema.json",
+  "countryCode": "242",
+  "nationalNumberLength": 9,
+  "nationalGrouping": [2, 3, 2, 2],
+  "verification": {
+    "status": "a_verifier",
+    "note": "Bootstrap value. To be confirmed against the national numbering plan published by the regulator (issue #2)."
+  },
+  "prefixes": [
+    {
+      "prefix": "06",
+      "type": "mobile",
+      "operator": "MTN",
+      "verification": { "status": "a_verifier", "note": "Bootstrap value, see issue #2." }
+    },
+    {
+      "prefix": "05",
+      "type": "mobile",
+      "operator": "Airtel",
+      "verification": { "status": "a_verifier", "note": "Bootstrap value, see issue #2." }
+    }
+  ]
+}
