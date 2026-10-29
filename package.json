@@ -15,7 +15,8 @@
     "build": "npm run build -w packages/js",
     "test:js": "npm test -w packages/js",
     "test:py": "cd packages/py && python -m pytest -q",
-    "check": "npm run validate && npm run sync -- --check && npm run typecheck && npm run test:js && npm run test:py",
+    "test:site": "node --test scripts/check-site.test.mjs && node scripts/check-site.mjs",
+    "check": "npm run validate && npm run sync -- --check && npm run typecheck && npm run test:js && npm run test:py && npm run test:site",
     "version:set": "node scripts/set-version.mjs"
   },
   "devDependencies": {

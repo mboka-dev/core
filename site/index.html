@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#090909" />
+    <title>Téléphone — mboka</title>
+    <meta
+      name="description"
+      content="Essayez mboka sans installation : numéros +242, montants en FCFA et données territoriales du Congo-Brazzaville. Tout se calcule dans votre navigateur."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_CG" />
+    <meta property="og:site_name" content="mboka" />
+    <meta property="og:title" content="mboka — Les briques locales, prêtes à intégrer" />
+    <meta
+      property="og:description"
+      content="Un numéro +242, un montant en FCFA : essayez la bibliothèque et repartez avec le code. JavaScript et Python, sans installation pour la démo."
+    />
+    <meta property="og:url" content="https://mboka-dev.github.io/core/" />
+    <meta property="og:image" content="https://opengraph.githubassets.com/1/mboka-dev/core" />
+    <meta property="og:image:alt" content="Le dépôt mboka-dev/core sur GitHub" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://cdn.jsdelivr.net https://api.github.com; base-uri 'none'; form-action 'none'; object-src 'none'"
+    />
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="./assets/geist.woff2" as="font" type="font/woff2" crossorigin />
+    <script src="./theme.js"></script>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="i-search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.3-4.3" />
+      </symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24">
+        <rect x="9" y="9" width="13" height="13" rx="2" />
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+      </symbol>
+      <symbol id="i-theme" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 3a9 9 0 0 0 0 18Z" />
+      </symbol>
+      <symbol id="i-external" viewBox="0 0 24 24">
+        <path d="M15 3h6v6M10 14 21 3M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6" /></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+      <symbol id="i-github" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          stroke="none"
+          d="M12 .6a11.6 11.6 0 0 0-3.67 22.61c.58.1.8-.25.8-.56v-2.18c-3.25.71-3.94-1.38-3.94-1.38-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.74-1.55-2.59-.3-5.31-1.3-5.31-5.8 0-1.28.46-2.33 1.2-3.15-.12-.3-.52-1.49.12-3.1 0 0 .98-.32 3.2 1.19a11.13 11.13 0 0 1 5.83 0c2.22-1.5 3.2-1.19 3.2-1.19.64 1.61.24 2.8.12 3.1.75.82 1.2 1.87 1.2 3.16 0 4.51-2.73 5.5-5.32 5.79.42.36.79 1.07.79 2.16v3.21c0 .31.21.67.8.56A11.6 11.6 0 0 0 12 .6Z"
+        />
+      </symbol>
+    </svg>
+
+    <header class="site-header">
+      <div class="header-left">
+        <button
+          class="icon-button menu-toggle"
+          id="menu-open"
+          aria-label="Ouvrir la navigation"
+          aria-haspopup="dialog"
+        >
+          <svg class="icon" aria-hidden="true"><use href="#i-menu" /></svg>
+        </button>
+        <a class="wordmark" href="#presentation" aria-label="mboka, présentation">mboka</a>
+        <nav class="top-nav" aria-label="Liens principaux">
+          <a class="current" href="#telephone">Documentation</a>
+          <a href="https://github.com/mboka-dev/core/blob/main/CONTRIBUTING.md">Contribuer</a>
+        </nav>
+      </div>
+      <div class="header-tools">
+        <button
+          id="search-open"
+          class="search-trigger"
+          aria-haspopup="dialog"
+          aria-label="Rechercher dans la documentation"
+        >
+          <svg class="icon" aria-hidden="true"><use href="#i-search" /></svg><span>Rechercher…</span
+          ><kbd>Ctrl K</kbd>
+        </button>
+        <a
+          class="github-link"
+          href="https://github.com/mboka-dev/core"
+          aria-label="Voir mboka-dev/core sur GitHub"
+        >
+          <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg
+          ><span id="star-count" hidden></span>
+        </a>
+        <button class="icon-button" id="theme-toggle" aria-label="Activer le thème clair">
+          <svg class="icon" aria-hidden="true"><use href="#i-theme" /></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="docs-layout">
+      <aside class="sidebar">
+        <nav id="sidebar-nav" aria-label="Documentation">
+          <div class="nav-group">
+            <p>Démarrer</p>
+            <a data-route="presentation" href="#presentation">Présentation</a
+            ><a data-route="installation" href="#installation">Installation</a>
+          </div>
+          <div class="nav-group">
+            <p>Démonstrations</p>
+            <a data-route="telephone" href="#telephone" aria-current="page">Téléphone</a
+            ><a data-route="montants" href="#montants">Montants</a
+            ><a data-route="territoire" href="#territoire">Territoire</a>
+          </div>
+          <div class="nav-group">
+            <p>Ressources</p>
+            <a href="https://github.com/mboka-dev/core/blob/main/docs/sourcing-des-donnees.md"
+              >Sources des données</a
+            ><a href="https://github.com/mboka-dev/core/blob/main/CONTRIBUTING.md">Contribuer</a>
+          </div>
+        </nav>
+      </aside>
+
+      <main id="contenu" tabindex="-1">
+        <noscript
+          ><p class="notice">
+            Activez JavaScript pour essayer les démos. Les exemples et le guide restent disponibles
+            dans le <a href="https://github.com/mboka-dev/core#exemples">README du projet</a>.
+          </p></noscript
+        >
+        <div class="library-notice">
+          <p id="library-status" role="status">Chargement de la bibliothèque…</p>
+          <button id="library-retry" class="text-button" hidden>Réessayer</button>
+        </div>
+
+        <article data-page="telephone" id="telephone" aria-labelledby="phone-title">
+          <div class="page-heading">
+            <p class="breadcrumb">
+              Démonstrations <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
+              <span>Téléphone</span>
+            </p>
+            <h1 id="phone-title">Téléphone</h1>
+            <p class="lead">Analyse et formatage des numéros +242.</p>
+          </div>
+          <section id="telephone-apercu" data-toc="Aperçu" aria-label="Essayer un numéro">
+            <div class="example-heading">
+              <div class="tabs" role="tablist" aria-label="Démonstration téléphone">
+                <button
+                  role="tab"
+                  id="phone-preview-tab"
+                  aria-selected="true"
+                  aria-controls="phone-preview"
+                  tabindex="0"
+                >
+                  Aperçu</button
+                ><button
+                  role="tab"
+                  id="phone-source-tab"
+                  aria-selected="false"
+                  aria-controls="phone-source"
+                  tabindex="-1"
+                >
+                  Code
+                </button>
+              </div>
+              <a
+                class="source-link"
+                href="https://github.com/mboka-dev/core/blob/main/packages/js/src/phone.ts"
+                >Voir le source</a
+              >
+            </div>
+            <div
+              class="preview"
+              id="phone-preview"
+              role="tabpanel"
+              aria-labelledby="phone-preview-tab"
+            >
+              <form id="phone-form" novalidate>
+                <label for="phone-input">Numéro de téléphone</label>
+                <div class="input-row">
+                  <input
+                    type="tel"
+                    inputmode="tel"
+                    id="phone-input"
+                    value="06 123 45 67"
+                    autocomplete="off"
+                    maxlength="80"
+                    spellcheck="false"
+                    aria-describedby="phone-help phone-error"
+                  /><button id="phone-submit" class="primary-button" disabled>Analyser</button>
+                </div>
+                <p class="field-help" id="phone-help">Exemple fictif, avec ou sans +242.</p>
+                <p class="field-error" id="phone-error" role="alert"></p>
+              </form>
+              <div class="result" id="phone-result" hidden aria-live="polite" aria-atomic="true">
+                <p class="result-label">Format international</p>
+                <div class="result-value">
+                  <output id="phone-e164" for="phone-input"></output
+                  ><button
+                    class="icon-button"
+                    data-copy="#phone-e164"
+                    aria-label="Copier le format international"
+                  >
+                    <svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg>
+                  </button>
+                </div>
+                <div class="result-secondary">
+                  <span>Format national</span
+                  ><output id="phone-national" for="phone-input"></output>
+                </div>
+                <details class="raw-result">
+                  <summary>Résultat complet de <code>parse</code></summary>
+                  <pre><code id="phone-json"></code></pre>
+                </details>
+              </div>
+            </div>
+            <div
+              class="code-panel"
+              id="phone-source"
+              role="tabpanel"
+              aria-labelledby="phone-source-tab"
+              hidden
+            >
+              <pre><code data-mirror="#phone-js"></code></pre>
+            </div>
+          </section>
+          <section id="telephone-utilisation" data-toc="Utilisation" class="doc-section">
+            <h2>Utilisation</h2>
+            <p>Appelez la fonction depuis votre application JavaScript ou Python.</p>
+            <div class="code-panel" id="phone-code">
+              <div class="code-toolbar">
+                <div class="tabs" role="tablist" aria-label="Langage de l’exemple téléphone">
+                  <button
+                    id="phone-js-tab"
+                    role="tab"
+                    aria-selected="true"
+                    aria-controls="phone-js-panel"
+                    tabindex="0"
+                  >
+                    JavaScript</button
+                  ><button
+                    id="phone-py-tab"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="phone-py-panel"
+                    tabindex="-1"
+                  >
+                    Python
+                  </button>
+                </div>
+                <button
+                  class="icon-button"
+                  data-copy="#phone-code"
+                  aria-label="Copier le code téléphone"
+                >
+                  <svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg>
+                </button>
+              </div>
+              <div id="phone-js-panel" role="tabpanel" aria-labelledby="phone-js-tab">
+                <pre><code id="phone-js">import { phone } from '@mboka-dev/core';
+const numero = phone.parse('06 123 45 67');</code></pre>
+              </div>
+              <div id="phone-py-panel" role="tabpanel" aria-labelledby="phone-py-tab" hidden>
+                <pre><code id="phone-py">from mboka import phone
+numero = phone.parse("06 123 45 67")</code></pre>
+              </div>
+            </div>
+          </section>
+          <section id="telephone-limites" data-toc="Limites" class="doc-section">
+            <h2>Limites</h2>
+            <p>
+              Le plan de numérotation est provisoire. Un format reconnu ne vérifie ni l’existence du
+              numéro ni son attribution.
+            </p>
+            <p class="privacy-note">
+              Le numéro saisi reste sur cette page. Aucun envoi, aucun traceur.
+            </p>
+          </section>
+        </article>
+
+        <article data-page="montants" id="montants" aria-labelledby="money-title" hidden>
+          <div class="page-heading">
+            <p class="breadcrumb">
+              Démonstrations <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
+              <span>Montants</span>
+            </p>
+            <h1 id="money-title">Montants</h1>
+            <p class="lead">Des montants en FCFA, prêts à afficher.</p>
+          </div>
+          <section id="montants-apercu" data-toc="Aperçu" aria-label="Essayer un montant">
+            <div class="example-heading">
+              <div class="tabs" role="tablist" aria-label="Démonstration montants">
+                <button
+                  id="money-preview-tab"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="money-preview"
+                  tabindex="0"
+                >
+                  Aperçu</button
+                ><button
+                  id="money-source-tab"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="money-source"
+                  tabindex="-1"
+                >
+                  Code
+                </button>
+              </div>
+              <a
+                class="source-link"
+                href="https://github.com/mboka-dev/core/blob/main/packages/js/src/money.ts"
+                >Voir le source</a
+              >
+            </div>
+            <div
+              class="preview"
+              id="money-preview"
+              role="tabpanel"
+              aria-labelledby="money-preview-tab"
+            >
+              <form id="money-form" novalidate>
+                <div class="money-fields">
+                  <div>
+                    <label for="money-input">Montant entier</label
+                    ><input
+                      id="money-input"
+                      type="text"
+                      inputmode="numeric"
+                      value="125000"
+                      maxlength="24"
+                      autocomplete="off"
+                      spellcheck="false"
+                      aria-describedby="money-help money-error"
+                    />
+                  </div>
+                  <div>
+                    <label for="money-label">Libellé</label
+                    ><select id="money-label">
+                      <option value="FCFA">FCFA</option>
+                      <option value="XAF">XAF</option>
+                      <option value="">Sans libellé</option>
+                    </select>
+                  </div>
+                  <button id="money-submit" class="primary-button" disabled>Formater</button>
+                </div>
+                <p class="field-help" id="money-help">
+                  Exemple fictif : 125000. Saisissez un entier sans séparateur.
+                </p>
+                <p class="field-error" id="money-error" role="alert"></p>
+              </form>
+              <div class="result" id="money-result" hidden aria-live="polite" aria-atomic="true">
+                <p class="result-label">Montant formaté</p>
+                <div class="result-value">
+                  <output id="money-output" for="money-input money-label"></output
+                  ><button
+                    class="icon-button"
+                    data-copy="#money-output"
+                    aria-label="Copier le montant formaté"
+                  >
+                    <svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="code-panel"
+              id="money-source"
+              role="tabpanel"
+              aria-labelledby="money-source-tab"
+              hidden
+            >
+              <pre><code data-mirror="#money-js"></code></pre>
+            </div>
+          </section>
+          <section id="montants-utilisation" data-toc="Utilisation" class="doc-section">
+            <h2>Utilisation</h2>
+            <p>Choisissez le libellé qui convient à votre interface.</p>
+            <div class="code-panel" id="money-code">
+              <div class="code-toolbar">
+                <div class="tabs" role="tablist" aria-label="Langage de l’exemple montants">
+                  <button
+                    id="money-js-tab"
+                    role="tab"
+                    aria-selected="true"
+                    aria-controls="money-js-panel"
+                    tabindex="0"
+                  >
+                    JavaScript</button
+                  ><button
+                    id="money-py-tab"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="money-py-panel"
+                    tabindex="-1"
+                  >
+                    Python
+                  </button>
+                </div>
+                <button
+                  class="icon-button"
+                  data-copy="#money-code"
+                  aria-label="Copier le code montants"
+                >
+                  <svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg>
+                </button>
+              </div>
+              <div id="money-js-panel" role="tabpanel" aria-labelledby="money-js-tab">
+                <pre><code id="money-js">import { money } from '@mboka-dev/core';
+money.format(125000);</code></pre>
+              </div>
+              <div id="money-py-panel" role="tabpanel" aria-labelledby="money-py-tab" hidden>
+                <pre><code id="money-py">from mboka import money
+money.format(125000)</code></pre>
+              </div>
+            </div>
+          </section>
+          <section id="montants-limites" data-toc="Limites" class="doc-section">
+            <h2>Limites</h2>
+            <p>
+              Cette fonction formate un entier : elle ne convertit pas les devises et ne lit pas un
+              montant déjà écrit. Les décimales et les entiers dépassant la précision de JavaScript
+              sont refusés.
+            </p>
+            <p class="privacy-note">Le montant saisi reste dans votre navigateur.</p>
+          </section>
+        </article>
+
+        <article data-page="territoire" id="territoire" aria-labelledby="geo-title" hidden>
+          <div class="page-heading">
+            <p class="breadcrumb">
+              Démonstrations <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
+              <span>Territoire</span>
+            </p>
+            <h1 id="geo-title">Territoire</h1>
+            <p class="lead">Les départements du Congo-Brazzaville.</p>
+          </div>
+          <section id="territoire-apercu" data-toc="Données" aria-label="Départements disponibles">
+            <div class="example-heading">
+              <span class="example-label">Départements</span
+              ><a class="source-link" href="https://github.com/mboka-dev/core/tree/main/data/geo"
+                >Voir les données</a
+              >
+            </div>
+            <div class="preview geo-preview">
+              <p id="geo-status" role="status">Chargement des données…</p>
+              <div id="geo-empty" hidden>
+                <h2>Les données arrivent.</h2>
+                <p>
+                  Cette version de la bibliothèque ne contient pas encore de départements. La liste
+                  s’affichera ici dès qu’une version les intégrant sera utilisée.
+                </p>
+                <a
+                  class="inline-link"
+                  href="https://github.com/mboka-dev/core/blob/main/docs/sourcing-des-donnees.md"
+                  >Contribuer aux données <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg></a
+                >
+              </div>
+              <ul id="departments-list" class="department-list" hidden></ul>
+            </div>
+          </section>
+          <section id="territoire-utilisation" data-toc="Utilisation" class="doc-section">
+            <h2>Utilisation</h2>
+            <p>La liste provient des données embarquées dans la bibliothèque.</p>
+            <div class="code-panel" id="geo-code">
+              <div class="code-toolbar">
+                <div class="tabs" role="tablist" aria-label="Langage de l’exemple territoire">
+                  <button
+                    id="geo-js-tab"
+                    role="tab"
+                    aria-selected="true"
+                    aria-controls="geo-js-panel"
+                    tabindex="0"
+                  >
+                    JavaScript</button
+                  ><button
+                    id="geo-py-tab"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="geo-py-panel"
+                    tabindex="-1"
+                  >
+                    Python
+                  </button>
+                </div>
+                <button
+                  class="icon-button"
+                  data-copy="#geo-code"
+                  aria-label="Copier le code territoire"
+                >
+                  <svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg>
+                </button>
+              </div>
+              <div id="geo-js-panel" role="tabpanel" aria-labelledby="geo-js-tab">
+                <pre><code id="geo-js">import { geo } from '@mboka-dev/core';
+geo.departements();</code></pre>
+              </div>
+              <div id="geo-py-panel" role="tabpanel" aria-labelledby="geo-py-tab" hidden>
+                <pre><code id="geo-py">from mboka import geo
+geo.departements()</code></pre>
+              </div>
+            </div>
+          </section>
+          <section id="territoire-sources" data-toc="Sources" class="doc-section">
+            <h2>Des données traçables</h2>
+            <p>
+              Chaque entrée documente son état de vérification, sa source et sa date. Consultez le
+              <a href="https://github.com/mboka-dev/core/blob/main/docs/sourcing-des-donnees.md"
+                >guide de sourçage</a
+              >
+              avant de contribuer.
+            </p>
+          </section>
+        </article>
+
+        <article data-page="presentation" id="presentation" aria-labelledby="intro-title" hidden>
+          <div class="page-heading">
+            <p class="breadcrumb">
+              Démarrer <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
+              <span>Présentation</span>
+            </p>
+            <h1 id="intro-title">Les briques locales, prêtes à intégrer.</h1>
+            <p class="lead">
+              mboka rassemble les données et utilitaires du Congo-Brazzaville dans une bibliothèque
+              JavaScript et Python.
+            </p>
+          </div>
+          <section id="presentation-essayer" data-toc="Essayer" class="doc-section">
+            <h2>Essayez, puis prenez le code.</h2>
+            <p>
+              Analysez un numéro +242, formatez un montant en FCFA ou consultez les données
+              territoriales disponibles. Aucun compte, aucune installation.
+            </p>
+            <div class="topic-links">
+              <a href="#telephone"
+                ><span>Téléphone</span><span>Analyser et formater un numéro +242</span
+                ><svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a
+              ><a href="#montants"
+                ><span>Montants</span><span>Afficher un montant en FCFA</span
+                ><svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a
+              ><a href="#territoire"
+                ><span>Territoire</span><span>Consulter les départements disponibles</span
+                ><svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg
+              ></a>
+            </div>
+          </section>
+          <section id="presentation-confidentialite" data-toc="Confidentialité" class="doc-section">
+            <h2>Vos saisies restent ici.</h2>
+            <p>
+              Les démonstrations s’exécutent entièrement dans votre navigateur. Aucun numéro ni
+              montant n’est envoyé ou enregistré. Le site ne contient ni traceur ni outil d’analyse
+              d’audience.
+            </p>
+            <p>
+              Au chargement, le site récupère la bibliothèque depuis jsDelivr et le nombre d’étoiles
+              du dépôt depuis GitHub. Ces services reçoivent les informations habituelles d’une
+              connexion, jamais vos saisies.
+            </p>
+          </section>
+          <section id="presentation-projet" data-toc="Le projet" class="doc-section">
+            <h2>Un projet ouvert</h2>
+            <p>
+              « Le pays, chez soi », en lingala. mboka est initié par Euloge, Akieni Academy et
+              maintenu avec ses contributeurs au sein de
+              <a href="https://github.com/mboka-dev">mboka-dev</a>.
+            </p>
+            <p>
+              Cette démonstration utilise la pré-version <code>0.0.2</code>. L’API peut évoluer ;
+              les données provisoires sont signalées.
+            </p>
+            <p>
+              <a href="https://github.com/mboka-dev/core/blob/main/CONTRIBUTING.md"
+                >Lire le guide de contribution</a
+              >
+            </p>
+          </section>
+        </article>
+
+        <article data-page="installation" id="installation" aria-labelledby="install-title" hidden>
+          <div class="page-heading">
+            <p class="breadcrumb">
+              Démarrer <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
+              <span>Installation</span>
+            </p>
+            <h1 id="install-title">Installation</h1>
+            <p class="lead">Une même bibliothèque, deux écosystèmes.</p>
+          </div>
+          <section id="installation-javascript" data-toc="JavaScript" class="doc-section">
+            <h2>JavaScript / TypeScript</h2>
+            <p>Avec Node.js 22 ou une version ultérieure :</p>
+            <div class="code-panel">
+              <div class="code-toolbar">
+                <span>Terminal</span
+                ><button
+                  class="icon-button"
+                  data-copy="#install-js"
+                  aria-label="Copier la commande npm"
+                >
+                  <svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg>
+                </button>
+              </div>
+              <pre><code id="install-js">npm install @mboka-dev/core</code></pre>
+            </div>
+            <p>
+              Les types TypeScript sont inclus. Les démos fonctionnent aussi dans un navigateur
+              grâce à un
+              <a href="https://cdn.jsdelivr.net/npm/@mboka-dev/core@0.0.2/dist/esm/index.js"
+                >module ES chargé depuis un CDN</a
+              >.
+            </p>
+          </section>
+          <section id="installation-python" data-toc="Python" class="doc-section">
+            <h2>Python</h2>
+            <p>Avec Python 3.10 ou une version ultérieure, dans votre environnement virtuel :</p>
+            <div class="code-panel">
+              <div class="code-toolbar">
+                <span>Terminal</span
+                ><button
+                  class="icon-button"
+                  data-copy="#install-py"
+                  aria-label="Copier la commande pip"
+                >
+                  <svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg>
+                </button>
+              </div>
+              <pre><code id="install-py">pip install mboka</code></pre>
+            </div>
+            <p>
+              Les onglets Python présentent du code à exécuter dans votre application ; le site
+              exécute uniquement le paquet JavaScript.
+            </p>
+          </section>
+          <section id="installation-suite" data-toc="Ensuite" class="doc-section">
+            <h2>À vous de jouer.</h2>
+            <p>
+              Ouvrez une <a href="#telephone">démonstration</a>, essayez une entrée et copiez
+              l’exemple dans votre projet. Pour les détails de l’API, consultez les
+              <a href="https://github.com/mboka-dev/core#exemples">exemples du dépôt</a>.
+            </p>
+          </section>
+        </article>
+        <footer class="page-footer">
+          <span>mboka · <a href="https://github.com/mboka-dev/core">mboka-dev/core</a></span
+          ><span
+            ><a href="https://github.com/mboka-dev/core/blob/main/LICENSE">Code MIT</a> ·
+            <a href="https://github.com/mboka-dev/core/blob/main/DATA_LICENSE.md"
+              >Données CC BY 4.0</a
+            ></span
+          >
+        </footer>
+      </main>
+      <aside class="table-of-contents" aria-label="Sur cette page">
+        <p>Sur cette page</p>
+        <nav id="page-toc"></nav>
+      </aside>
+    </div>
+
+    <dialog id="search-dialog" class="search-dialog" aria-labelledby="search-title">
+      <div class="dialog-heading">
+        <h2 id="search-title">Rechercher</h2>
+        <button class="icon-button" data-close-dialog aria-label="Fermer la recherche">
+          <svg class="icon" aria-hidden="true"><use href="#i-close" /></svg>
+        </button>
+      </div>
+      <label class="sr-only" for="search-query">Rechercher dans la documentation</label
+      ><input
+        id="search-query"
+        type="search"
+        placeholder="Téléphone, montant, installation…"
+        autocomplete="off"
+        aria-controls="search-results"
+      />
+      <p id="search-status" class="sr-only" role="status"></p>
+      <ul id="search-results"></ul>
+      <p class="search-hint">Échap pour fermer</p>
+    </dialog>
+    <dialog id="mobile-nav" class="nav-dialog" aria-label="Navigation de la documentation">
+      <div class="dialog-heading">
+        <span class="wordmark">mboka</span
+        ><button class="icon-button" data-close-dialog aria-label="Fermer la navigation">
+          <svg class="icon" aria-hidden="true"><use href="#i-close" /></svg>
+        </button>
+      </div>
+      <div id="mobile-links"></div>
+    </dialog>
+    <p class="toast" id="copy-status" role="status" aria-live="polite"></p>
+  </body>
+</html>

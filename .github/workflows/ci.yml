@@ -13,6 +13,16 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  site:
+    name: Site (liens locaux et budget)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm run test:site
+
   data:
     name: Données (schémas, sources, synchronisation)
     runs-on: ubuntu-latest

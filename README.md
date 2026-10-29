@@ -6,6 +6,8 @@ Un seul jeu de données sourcé, deux paquets : **JavaScript/TypeScript** (`@mbo
 
 > Projet initié et maintenu par **Euloge, Akieni Academy**, ouvert à tous les contributeurs. Statut : **pré-version (v0.x)**, l'API peut encore changer.
 
+**Démonstration :** [essayer Mboka dans le navigateur](https://mboka-dev.github.io/core/) — adresse de publication du dossier `site/`, après activation de GitHub Pages. Le [guide du site](site/README.md) explique comment le lancer localement et le publier.
+
 ## Pourquoi
 
 Chaque site marchand, formulaire d'inscription ou application de paiement recode les mêmes briques : accepter « 06 123 45 67 » comme « +242061234567 », proposer la bonne liste d'arrondissements, écrire un montant en lettres sur une facture. Ce projet les fournit une fois, testées, avec des données dont chaque ligne cite sa source.
