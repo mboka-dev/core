@@ -1,3 +1,5 @@
+[🇫🇷 Français](README.md) · [🇬🇧 English](README.en.md)
+
 # mboka
 
 *« Le pays, chez soi » en lingala.* Données et utilitaires locaux pour les développeurs qui construisent des applications au Congo-Brazzaville : numéros de téléphone +242, découpage territorial, montants en FCFA.
