@@ -47,11 +47,43 @@ money.format(125000)                        # '125 000 FCFA'
 df["ville"] = df["ville_saisie"].map(geo.normalize_name)
 ```
 
+### Bouton « Écrire sur WhatsApp »
+
+`phone.whatsappLink()` accepte le numéro écrit comme on veut et renvoie un lien `wa.me` prêt à l'emploi. Le message est facultatif et un numéro invalide lève une erreur (aucun lien n'est généré).
+
+```ts
+import { phone } from '@mboka-dev/core';
+
+phone.whatsappLink('06 123 45 67');
+// 'https://wa.me/242061234567'
+
+phone.whatsappLink('06 123 45 67', 'Bonjour, je veux commander');
+// 'https://wa.me/242061234567?text=Bonjour%2C%20je%20veux%20commander'
+```
+
+```python
+from mboka import phone
+
+phone.whatsapp_link("06 123 45 67", "Bonjour, je veux commander")
+# 'https://wa.me/242061234567?text=Bonjour%2C%20je%20veux%20commander'
+```
+
+Le lien se met ensuite dans un bouton HTML :
+
+```html
+<a href="https://wa.me/242061234567?text=Bonjour%2C%20je%20veux%20commander" target="_blank" rel="noopener"> 
+  Écrire sur WhatsApp
+</a>
+```
+
+Le message est encodé de la même façon en JS et en Python : tout est converti en `%XX`, sauf les lettres, les chiffres et `- _ . ~`. Par exemple, `!`, `'`, `(`, `)` et `*` sont aussi encodés.
+
 ## Ce qui est disponible
 
 | Module | Fonction | Statut |
 |---|---|---|
 | `phone` | `parse`, `isValid`, `format` | v0.1 |
+| `phone` | `whatsappLink` (`whatsapp_link` en Python) | v0.2 |
 | `money` | `format` | v0.1 |
 | `money` | `toWords` (montant en lettres) | en cours, voir les issues |
 | `geo` | `departements`, `communes`, `arrondissements`, `find` | v0.1 (exact), recherche floue en cours |
