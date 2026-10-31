@@ -50,9 +50,15 @@ export interface PhonePrefix {
   verification: Verification;
 }
 
-export interface DepartementsFile { items: Departement[] }
-export interface CommunesFile { items: Commune[] }
-export interface ArrondissementsFile { items: Arrondissement[] }
+export interface DepartementsFile {
+  items: Departement[];
+}
+export interface CommunesFile {
+  items: Commune[];
+}
+export interface ArrondissementsFile {
+  items: Arrondissement[];
+}
 export interface NumerotationFile {
   countryCode: '242';
   nationalNumberLength: number;

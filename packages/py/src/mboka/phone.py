@@ -3,7 +3,9 @@ from typing import Any, Literal, Optional, TypedDict
 
 from ._data import load
 
-InvalidReason = Literal["empty", "invalid_characters", "foreign_number", "length", "unknown_prefix"]
+InvalidReason = Literal[
+    "empty", "invalid_characters", "foreign_number", "length", "unknown_prefix"
+]
 FormatStyle = Literal["national", "international", "e164"]
 
 _SEPARATORS = re.compile(r"[\s().\-/]")
@@ -39,8 +41,16 @@ def _group(digits: str) -> str:
 
 
 def _invalid(value: str, reason: InvalidReason) -> ParsedPhone:
-    return ParsedPhone(input=value, valid=False, e164=None, national=None, international=None,
-                       operator=None, type=None, reason=reason)
+    return ParsedPhone(
+        input=value,
+        valid=False,
+        e164=None,
+        national=None,
+        international=None,
+        operator=None,
+        type=None,
+        reason=reason,
+    )
 
 
 def parse(value: str) -> ParsedPhone:
@@ -61,23 +71,32 @@ def parse(value: str) -> ParsedPhone:
         rest = compact[1:] if compact.startswith("+") else compact[2:]
         if not rest.startswith(cc):
             return _invalid(value, "foreign_number")
-        national = rest[len(cc):]
+        national = rest[len(cc) :]
     elif compact.startswith(cc) and len(compact) == len(cc) + length:
-        national = compact[len(cc):]
+        national = compact[len(cc) :]
     else:
         national = compact
 
     if len(national) != length:
         return _invalid(value, "length")
 
-    prefix = next((p for p in plan["prefixes"] if national.startswith(p["prefix"])), None)
+    prefix = next(
+        (p for p in plan["prefixes"] if national.startswith(p["prefix"])), None
+    )
     if prefix is None:
         return _invalid(value, "unknown_prefix")
 
     grouped = _group(national)
-    return ParsedPhone(input=value, valid=True, e164=f"+{cc}{national}", national=grouped,
-                       international=f"+{cc} {grouped}", operator=prefix.get("operator"),
-                       type=prefix["type"], reason=None)
+    return ParsedPhone(
+        input=value,
+        valid=True,
+        e164=f"+{cc}{national}",
+        national=grouped,
+        international=f"+{cc} {grouped}",
+        operator=prefix.get("operator"),
+        type=prefix["type"],
+        reason=None,
+    )
 
 
 def is_valid(value: str) -> bool:
@@ -95,4 +114,6 @@ def format(value: str, style: FormatStyle = "national") -> str:  # noqa: A001 - 
         return parsed["international"]  # type: ignore[return-value]
     if style == "e164":
         return parsed["e164"]  # type: ignore[return-value]
-    raise ValueError(f'Unknown format style "{style}". Use national, international or e164.')
+    raise ValueError(
+        f'Unknown format style "{style}". Use national, international or e164.'
+    )

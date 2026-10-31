@@ -8,7 +8,9 @@ def _check_amount(amount: object, fn: str) -> int:
     if isinstance(amount, bool) or not isinstance(amount, (int, float)):
         raise TypeError(f"money.{fn} expects a number")
     if isinstance(amount, float):
-        raise ValueError(f"money.{fn} expects an integer amount: the CFA franc has no subunit")
+        raise ValueError(
+            f"money.{fn} expects an integer amount: the CFA franc has no subunit"
+        )
     return amount
 
 
@@ -20,8 +22,11 @@ def format(amount: int, label: str = "FCFA", separator: str = NARROW_NBSP) -> st
     return f"{sign}{grouped}{NBSP}{label}" if label else f"{sign}{grouped}"
 
 
-def to_words(amount: int, currency: bool = True,
-             orthographe: Literal["traditionnelle", "1990"] = "traditionnelle") -> str:
+def to_words(
+    amount: int,
+    currency: bool = True,
+    orthographe: Literal["traditionnelle", "1990"] = "traditionnelle",
+) -> str:
     """Amount in words: to_words(125000) == 'cent vingt-cinq mille francs CFA'.
 
     Specified by fixtures/money/to-words.json. Not implemented yet: see the open issue.

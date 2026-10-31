@@ -1,7 +1,7 @@
 name: Proposition de fonctionnalité
 description: Une nouvelle fonction ou un nouveau jeu de données
-title: "[proposition] "
-labels: ["enhancement", "triage"]
+title: '[proposition] '
+labels: ['enhancement', 'triage']
 body:
   - type: textarea
     id: besoin

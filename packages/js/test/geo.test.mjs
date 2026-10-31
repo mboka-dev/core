@@ -10,7 +10,12 @@ test('lists are arrays', () => {
 
 test('returned data cannot mutate the shipped data', () => {
   const first = geo.departements();
-  first.push({ id: 'fake', nom: 'Fake', aliases: [], verification: { status: 'a_verifier' } });
+  first.push({
+    id: 'fake',
+    nom: 'Fake',
+    aliases: [],
+    verification: { status: 'a_verifier' },
+  });
   assert.notEqual(geo.departements().length, first.length);
 });
 

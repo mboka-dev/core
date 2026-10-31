@@ -17,9 +17,21 @@ pkg.version = version;
 writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + '\n');
 
 const pyPath = join(root, 'packages/py/pyproject.toml');
-writeFileSync(pyPath, readFileSync(pyPath, 'utf8').replace(/^version = ".*"$/m, `version = "${version}"`));
+writeFileSync(
+  pyPath,
+  readFileSync(pyPath, 'utf8').replace(
+    /^version = ".*"$/m,
+    `version = "${version}"`,
+  ),
+);
 
 const initPath = join(root, 'packages/py/src/mboka/__init__.py');
-writeFileSync(initPath, readFileSync(initPath, 'utf8').replace(/^__version__ = ".*"$/m, `__version__ = "${version}"`));
+writeFileSync(
+  initPath,
+  readFileSync(initPath, 'utf8').replace(
+    /^__version__ = ".*"$/m,
+    `__version__ = "${version}"`,
+  ),
+);
 
 console.log(`✓ version set to ${version} (npm + PyPI)`);

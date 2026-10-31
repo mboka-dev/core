@@ -1,16 +1,16 @@
 name: Correction de données
 description: Une donnée est fausse, manquante ou périmée (préfixe, commune, nom…)
-title: "[données] "
-labels: ["data", "triage"]
+title: '[données] '
+labels: ['data', 'triage']
 body:
   - type: markdown
     attributes:
-      value: "Merci ! Une correction sans source ne peut pas être acceptée : voir docs/sourcing-des-donnees.md."
+      value: 'Merci ! Une correction sans source ne peut pas être acceptée : voir docs/sourcing-des-donnees.md.'
   - type: input
     id: fichier
     attributes:
       label: Fichier et entrée concernés
-      placeholder: "data/phone/numerotation.json, préfixe 05"
+      placeholder: 'data/phone/numerotation.json, préfixe 05'
     validations:
       required: true
   - type: textarea

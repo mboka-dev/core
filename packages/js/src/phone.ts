@@ -1,7 +1,12 @@
 import { numerotation as plan } from './generated/data.js';
 import type { PhonePrefix } from './types.js';
 
-export type InvalidReason = 'empty' | 'invalid_characters' | 'foreign_number' | 'length' | 'unknown_prefix';
+export type InvalidReason =
+  | 'empty'
+  | 'invalid_characters'
+  | 'foreign_number'
+  | 'length'
+  | 'unknown_prefix';
 export type FormatStyle = 'national' | 'international' | 'e164';
 
 export interface ParsedPhone {
@@ -34,12 +39,22 @@ function group(digits: string): string {
 }
 
 function invalid(input: string, reason: InvalidReason): ParsedPhone {
-  return { input, valid: false, e164: null, national: null, international: null, operator: null, type: null, reason };
+  return {
+    input,
+    valid: false,
+    e164: null,
+    national: null,
+    international: null,
+    operator: null,
+    type: null,
+    reason,
+  };
 }
 
 /** Parses any common way of writing a Congo-Brazzaville number. Never throws on bad numbers, only on non-strings. */
 export function parse(input: string): ParsedPhone {
-  if (typeof input !== 'string') throw new TypeError('phone.parse expects a string');
+  if (typeof input !== 'string')
+    throw new TypeError('phone.parse expects a string');
 
   const compact = input.replace(SEPARATORS, '');
   if (compact === '') return invalid(input, 'empty');
@@ -84,7 +99,8 @@ export function isValid(input: string): boolean {
 /** Formats a number in the requested style. Throws if the number is invalid. */
 export function format(input: string, style: FormatStyle = 'national'): string {
   const parsed = parse(input);
-  if (!parsed.valid) throw new Error(`Invalid +242 number (${parsed.reason}): "${input}"`);
+  if (!parsed.valid)
+    throw new Error(`Invalid +242 number (${parsed.reason}): "${input}"`);
   switch (style) {
     case 'national':
       return parsed.national!;
@@ -93,6 +109,8 @@ export function format(input: string, style: FormatStyle = 'national'): string {
     case 'e164':
       return parsed.e164!;
     default:
-      throw new Error(`Unknown format style "${String(style)}". Use national, international or e164.`);
+      throw new Error(
+        `Unknown format style "${String(style)}". Use national, international or e164.`,
+      );
   }
 }

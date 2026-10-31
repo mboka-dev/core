@@ -47,6 +47,7 @@ Règles :
 - **Les tests d'abord.** Un comportement se décrit dans `fixtures/` (entrée → sortie attendue). Les deux paquets lisent les mêmes fixtures : ajouter un cas le teste en JS et en Python d'un coup.
 - **Une PR = une issue.** Petite et lisible, c'est ce qui se relit vite.
 - **Code et commentaires en anglais, documentation en français.**
+- **Lance `npm run format` avant de commiter pour formater le code.**
 
 ## 4. Messages de commit
 

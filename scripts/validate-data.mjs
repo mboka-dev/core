@@ -16,7 +16,11 @@ const dataDir = join(root, 'data');
 const schemaDir = join(dataDir, 'schema');
 const strict = process.argv.includes('--strict');
 
-const ajv = new Ajv2020({ allErrors: true, strict: true, strictRequired: false });
+const ajv = new Ajv2020({
+  allErrors: true,
+  strict: true,
+  strictRequired: false,
+});
 addFormats(ajv);
 for (const file of readdirSync(schemaDir)) {
   ajv.addSchema(JSON.parse(readFileSync(join(schemaDir, file), 'utf8')));
@@ -29,7 +33,11 @@ function walk(dir) {
   return readdirSync(dir).flatMap((name) => {
     const path = join(dir, name);
     if (path === schemaDir) return [];
-    return statSync(path).isDirectory() ? walk(path) : name.endsWith('.json') ? [path] : [];
+    return statSync(path).isDirectory()
+      ? walk(path)
+      : name.endsWith('.json')
+        ? [path]
+        : [];
   });
 }
 
@@ -37,9 +45,15 @@ function collectVerifications(node, path, out) {
   if (Array.isArray(node)) {
     node.forEach((item, i) => collectVerifications(item, `${path}[${i}]`, out));
   } else if (node && typeof node === 'object') {
-    if (node.verification) out.push({ path, label: node.nom ?? node.prefix ?? node.id ?? path, v: node.verification });
+    if (node.verification)
+      out.push({
+        path,
+        label: node.nom ?? node.prefix ?? node.id ?? path,
+        v: node.verification,
+      });
     for (const [key, value] of Object.entries(node)) {
-      if (key !== 'verification') collectVerifications(value, `${path}.${key}`, out);
+      if (key !== 'verification')
+        collectVerifications(value, `${path}.${key}`, out);
     }
   }
 }
@@ -61,7 +75,8 @@ for (const file of walk(dataDir)) {
     continue;
   }
   if (!validate(doc)) {
-    for (const err of validate.errors) errors.push(`${rel}${err.instancePath}: ${err.message}`);
+    for (const err of validate.errors)
+      errors.push(`${rel}${err.instancePath}: ${err.message}`);
     continue;
   }
   loaded[basename(file, '.json')] = doc;
@@ -87,21 +102,31 @@ const ids = (name) => new Set((loaded[name]?.items ?? []).map((i) => i.id));
 const depIds = ids('departements');
 const communeIds = ids('communes');
 for (const c of loaded.communes?.items ?? []) {
-  if (!depIds.has(c.departement)) errors.push(`data/geo/communes.json: "${c.id}" points to unknown departement "${c.departement}"`);
+  if (!depIds.has(c.departement))
+    errors.push(
+      `data/geo/communes.json: "${c.id}" points to unknown departement "${c.departement}"`,
+    );
 }
 for (const a of loaded.arrondissements?.items ?? []) {
-  if (!communeIds.has(a.commune)) errors.push(`data/geo/arrondissements.json: "${a.id}" points to unknown commune "${a.commune}"`);
+  if (!communeIds.has(a.commune))
+    errors.push(
+      `data/geo/arrondissements.json: "${a.id}" points to unknown commune "${a.commune}"`,
+    );
 }
 const prefixes = (loaded.numerotation?.prefixes ?? []).map((p) => p.prefix);
 for (const p of prefixes) {
   if (prefixes.some((other) => other !== p && other.startsWith(p))) {
-    errors.push(`data/phone/numerotation.json: prefix "${p}" overlaps a longer prefix; keep prefixes unambiguous`);
+    errors.push(
+      `data/phone/numerotation.json: prefix "${p}" overlaps a longer prefix; keep prefixes unambiguous`,
+    );
   }
 }
 
 if (pending.length) {
   const log = strict ? console.error : console.warn;
-  log(`\n${pending.length} entr${pending.length > 1 ? 'ies' : 'y'} still "a_verifier":`);
+  log(
+    `\n${pending.length} entr${pending.length > 1 ? 'ies' : 'y'} still "a_verifier":`,
+  );
   for (const p of pending) log(`  - ${p}`);
   if (strict) errors.push('strict mode: "a_verifier" entries are not allowed');
 }

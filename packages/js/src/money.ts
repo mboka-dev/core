@@ -17,7 +17,9 @@ function assertAmount(amount: unknown, fn: string): asserts amount is number {
     throw new TypeError(`money.${fn} expects a finite number`);
   }
   if (!Number.isSafeInteger(amount)) {
-    throw new RangeError(`money.${fn} expects an integer amount: the CFA franc has no subunit`);
+    throw new RangeError(
+      `money.${fn} expects an integer amount: the CFA franc has no subunit`,
+    );
   }
 }
 
@@ -26,7 +28,9 @@ export function format(amount: number, options: FormatOptions = {}): string {
   assertAmount(amount, 'format');
   const { label = 'FCFA', separator = ' ' } = options;
   const sign = amount < 0 ? '-' : '';
-  const grouped = Math.abs(amount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator);
+  const grouped = Math.abs(amount)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, separator);
   return label ? `${sign}${grouped} ${label}` : `${sign}${grouped}`;
 }
 
@@ -36,5 +40,7 @@ export function format(amount: number, options: FormatOptions = {}): string {
  */
 export function toWords(amount: number, _options: ToWordsOptions = {}): string {
   assertAmount(amount, 'toWords');
-  throw new Error('money.toWords is not implemented yet. Contributions welcome: see fixtures/money/to-words.json');
+  throw new Error(
+    'money.toWords is not implemented yet. Contributions welcome: see fixtures/money/to-words.json',
+  );
 }

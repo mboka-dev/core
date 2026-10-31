@@ -18,10 +18,19 @@ def collect():
     for path in sorted(FIXTURES.rglob("*.json")):
         fixture = json.loads(path.read_text(encoding="utf-8"))
         module_name, fn_name = fixture["function"].split(".")
-        marks = [pytest.mark.skip(reason="pending fixture")] if fixture["status"] == "pending" else []
+        marks = (
+            [pytest.mark.skip(reason="pending fixture")]
+            if fixture["status"] == "pending"
+            else []
+        )
         for case in fixture["cases"]:
-            yield pytest.param(module_name, snake(fn_name), case,
-                               id=f'{path.relative_to(FIXTURES)}::{case["name"]}', marks=marks)
+            yield pytest.param(
+                module_name,
+                snake(fn_name),
+                case,
+                id=f"{path.relative_to(FIXTURES)}::{case['name']}",
+                marks=marks,
+            )
 
 
 def assert_partial(actual, expected, path="result"):
@@ -31,7 +40,9 @@ def assert_partial(actual, expected, path="result"):
             assert_partial(actual.get(key), value, f"{path}.{key}")
     else:
         assert actual == expected, f"{path}: {actual!r} != {expected!r}"
-        assert type(actual) is type(expected) or expected is None, f"{path}: type {type(actual)} != {type(expected)}"
+        assert type(actual) is type(expected) or expected is None, (
+            f"{path}: type {type(actual)} != {type(expected)}"
+        )
 
 
 @pytest.mark.parametrize("module_name, fn_name, case", list(collect()))

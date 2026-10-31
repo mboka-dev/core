@@ -1,17 +1,57 @@
 # name | color | description  — consumed by scripts/create-labels.sh
-- { name: "good first issue", color: "7057ff", description: "Bonne première contribution" }
-- { name: "help wanted",      color: "008672", description: "Contributions bienvenues" }
-- { name: "data",             color: "0e8a16", description: "Touche aux fichiers de data/" }
-- { name: "besoin-source",    color: "fbca04", description: "Une source fiable est nécessaire" }
-- { name: "js",               color: "f1e05a", description: "Paquet JavaScript / TypeScript" }
-- { name: "python",           color: "3572a5", description: "Paquet Python" }
-- { name: "fixtures",         color: "c5def5", description: "Cas de test partagés" }
-- { name: "docs",             color: "0075ca", description: "Documentation" }
-- { name: "ci",               color: "5319e7", description: "Intégration continue, outillage" }
-- { name: "bug",              color: "d73a4a", description: "Comportement incorrect" }
-- { name: "enhancement",      color: "a2eeef", description: "Nouvelle fonctionnalité" }
-- { name: "rfc",              color: "b60205", description: "Changement d'API ou de schéma, discussion de 14 jours" }
-- { name: "triage",           color: "ededed", description: "À qualifier par un mainteneur" }
-- { name: "niveau: accessible",    color: "c2e0c6", description: "Tous parcours, peu ou pas de code" }
-- { name: "niveau: intermediaire", color: "fef2c0", description: "Code, tests, revue" }
-- { name: "niveau: avance",        color: "f9d0c4", description: "Conception, cas limites, outillage" }
+- {
+    name: 'good first issue',
+    color: '7057ff',
+    description: 'Bonne première contribution',
+  }
+- {
+    name: 'help wanted',
+    color: '008672',
+    description: 'Contributions bienvenues',
+  }
+- { name: 'data', color: '0e8a16', description: 'Touche aux fichiers de data/' }
+- {
+    name: 'besoin-source',
+    color: 'fbca04',
+    description: 'Une source fiable est nécessaire',
+  }
+- { name: 'js', color: 'f1e05a', description: 'Paquet JavaScript / TypeScript' }
+- { name: 'python', color: '3572a5', description: 'Paquet Python' }
+- { name: 'fixtures', color: 'c5def5', description: 'Cas de test partagés' }
+- { name: 'docs', color: '0075ca', description: 'Documentation' }
+- {
+    name: 'ci',
+    color: '5319e7',
+    description: 'Intégration continue, outillage',
+  }
+- { name: 'bug', color: 'd73a4a', description: 'Comportement incorrect' }
+- {
+    name: 'enhancement',
+    color: 'a2eeef',
+    description: 'Nouvelle fonctionnalité',
+  }
+- {
+    name: 'rfc',
+    color: 'b60205',
+    description: "Changement d'API ou de schéma, discussion de 14 jours",
+  }
+- {
+    name: 'triage',
+    color: 'ededed',
+    description: 'À qualifier par un mainteneur',
+  }
+- {
+    name: 'niveau: accessible',
+    color: 'c2e0c6',
+    description: 'Tous parcours, peu ou pas de code',
+  }
+- {
+    name: 'niveau: intermediaire',
+    color: 'fef2c0',
+    description: 'Code, tests, revue',
+  }
+- {
+    name: 'niveau: avance',
+    color: 'f9d0c4',
+    description: 'Conception, cas limites, outillage',
+  }
