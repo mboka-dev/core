@@ -1,0 +1,31 @@
+{
+  "function": "phone.whatsappLink",
+  "status": "active",
+  "description": "Builds a wa.me link from a +242 number. Second argument (`options`) is the optional message. Encoding rule: everything is percent-encoded except letters, digits and - _ . ~ (so ! ' ( ) * are encoded too).",
+  
+  "cases": [
+    { "name": "national number, no message", "input": "06 123 45 67",
+      "expected": "https://wa.me/242061234567" },
+
+    { "name": "E.164 input", "input": "+242061234567",
+      "expected": "https://wa.me/242061234567" },
+
+    { "name": "simple message", "input": "06 123 45 67", "options": "Bonjour, je veux commander",
+      "expected": "https://wa.me/242061234567?text=Bonjour%2C%20je%20veux%20commander" },
+
+    { "name": "accents", "input": "06 123 45 67", "options": "Café à emporter",
+      "expected": "https://wa.me/242061234567?text=Caf%C3%A9%20%C3%A0%20emporter" },
+
+    { "name": "ampersand and question mark", "input": "06 123 45 67", "options": "Tom & Jerry ?",
+      "expected": "https://wa.me/242061234567?text=Tom%20%26%20Jerry%20%3F" },
+
+    { "name": "line break", "input": "06 123 45 67", "options": "Ligne 1\nLigne 2",
+      "expected": "https://wa.me/242061234567?text=Ligne%201%0ALigne%202" },
+
+    { "name": "characters that JS and Python escape differently", "input": "06 123 45 67", "options": "Oui! l'ami (ok) *",
+      "expected": "https://wa.me/242061234567?text=Oui%21%20l%27ami%20%28ok%29%20%2A" },
+      
+    { "name": "too short throws", "input": "123", "expectedError": true },
+    { "name": "foreign number throws", "input": "+33 6 12 34 56 78", "expectedError": true }
+  ]
+}
