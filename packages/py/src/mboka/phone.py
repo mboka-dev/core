@@ -1,6 +1,7 @@
 import re
 from typing import Any, Literal, Optional, TypedDict
 
+from urllib.parse import quote
 from ._data import load
 
 InvalidReason = Literal["empty", "invalid_characters", "foreign_number", "length", "unknown_prefix"]
@@ -96,3 +97,20 @@ def format(value: str, style: FormatStyle = "national") -> str:  # noqa: A001 - 
     if style == "e164":
         return parsed["e164"]  # type: ignore[return-value]
     raise ValueError(f'Unknown format style "{style}". Use national, international or e164.')
+
+# Builds a WhatsApp URL from a valid phone number and optionally encodes a message.
+def whatsapp_link(value: str, message: Optional[str] = None) -> str:
+    """Build a wa.me link from a +242 number. Raises ValueError if the number is invalid."""
+    parsed = parse(value)
+    if not parsed["valid"]:
+        raise ValueError(f'Invalid +242 number ({parsed["reason"]}): "{value}"')
+    if message is not None and not isinstance(message, str):
+        raise TypeError("phone.whatsapp_link expects a string message")
+
+    # wa.me wants the number without the leading "+"
+    link = "https://wa.me/" + parsed["e164"][1:]  # same idea as slice(1) in JS
+    if not message:
+        return link
+
+    # safe="" so that "/" gets encoded too, otherwise it would stay as is
+    return link + "?text=" + quote(message, safe="")

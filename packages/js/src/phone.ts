@@ -96,3 +96,22 @@ export function format(input: string, style: FormatStyle = 'national'): string {
       throw new Error(`Unknown format style "${String(style)}". Use national, international or e164.`);
   }
 }
+
+// Converts a message to a URL-safe string.
+function encodeMessage(message: string): string {
+  return encodeURIComponent(message).replace(
+    /[!'()*]/g,
+    (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`,
+  );
+}
+
+/** Builds a wa.me link from a +242 number. Throws if the number is invalid. */
+export function whatsappLink(input: string, message?: string): string {
+  const parsed = parse(input);
+  if (!parsed.valid) throw new Error(`Invalid +242 number (${parsed.reason}): "${input}"`);
+  if (message !== undefined && typeof message !== 'string') {
+    throw new TypeError('phone.whatsappLink expects a string message');
+  }
+  const link = `https://wa.me/${parsed.e164!.slice(1)}`;
+  return message ? `${link}?text=${encodeMessage(message)}` : link;
+}
