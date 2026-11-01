@@ -10,7 +10,231 @@ export const communes: CommunesFile = {
 };
 
 export const departements: DepartementsFile = {
-  "items": []
+  "items": [
+    {
+      "id": "brazzaville",
+      "nom": "Brazzaville",
+      "chefLieu": "Brazzaville",
+      "aliases": [
+        "Bzv",
+        "Brazza"
+      ],
+      "verification": {
+        "status": "verifie",
+        "source": "Loi n° 29-2024 du 8 octobre 2024 portant redéfinition du ressort territorial du département de Brazzaville, art. 2, JO n° 42-2024 du 17 octobre 2024, p. 1306",
+        "sourceUrl": "https://sgg.cg/JO/2024/congo-jo-2024-42.pdf",
+        "verifiedAt": "2026-10-31",
+        "verifiedBy": "Deekskn"
+      }
+    },
+    {
+      "id": "congo-oubangui",
+      "nom": "Congo-Oubangui",
+      "chefLieu": "Mossaka",
+      "aliases": [
+        "Congo Oubangui"
+      ],
+      "validFrom": "2024-10-08",
+      "verification": {
+        "status": "verifie",
+        "source": "Loi n° 27-2024 du 8 octobre 2024 portant création du département du Congo-Oubangui, art. 2 et 3, JO n° 42-2024 du 17 octobre 2024, p. 1305",
+        "sourceUrl": "https://sgg.cg/JO/2024/congo-jo-2024-42.pdf",
+        "verifiedAt": "2026-10-31",
+        "verifiedBy": "Deekskn"
+      }
+    },
+    {
+      "id": "cuvette",
+      "nom": "Cuvette",
+      "chefLieu": "Owando",
+      "aliases": [
+        "La Cuvette"
+      ],
+      "verification": {
+        "status": "verifie",
+        "source": "Loi n° 30-2024 du 8 octobre 2024 portant redéfinition du ressort territorial du département de la Cuvette, art. 2, JO n° 42-2024 du 17 octobre 2024, p. 1306",
+        "sourceUrl": "https://sgg.cg/JO/2024/congo-jo-2024-42.pdf",
+        "verifiedAt": "2026-10-31",
+        "verifiedBy": "Deekskn"
+      }
+    },
+    {
+      "id": "djoue-lefini",
+      "nom": "Djoué-Léfini",
+      "chefLieu": "Odziba",
+      "aliases": [
+        "Djoue-Lefini",
+        "Djoué Léfini",
+        "Djoue Lefini"
+      ],
+      "validFrom": "2024-10-08",
+      "verification": {
+        "status": "verifie",
+        "source": "Loi n° 25-2024 du 8 octobre 2024 portant création du département du Djoué-Léfini, art. 2 et 3, JO n° 42-2024 du 17 octobre 2024, p. 1304",
+        "sourceUrl": "https://sgg.cg/JO/2024/congo-jo-2024-42.pdf",
+        "verifiedAt": "2026-10-31",
+        "verifiedBy": "Deekskn"
+      }
+    },
+    {
+      "id": "kouilou",
+      "nom": "Kouilou",
+      "chefLieu": "Loango",
+      "aliases": [
+        "Le Kouilou"
+      ],
+      "verification": {
+        "status": "verifie",
+        "source": "Loi n° 20-2011 du 17 mai 2011 portant création du district de Loango et érection de la localité de Loango en chef-lieu du département du Kouilou, art. 2, JO n° 21-2011 du 26 mai 2011, p. 590",
+        "sourceUrl": "https://www.sgg.cg/JO/2011/congo-jo-2011-21.pdf",
+        "verifiedAt": "2026-10-31",
+        "verifiedBy": "Deekskn"
+      }
+    },
+    {
+      "id": "likouala",
+      "nom": "Likouala",
+      "chefLieu": "Impfondo",
+      "aliases": [
+        "La Likouala"
+      ],
+      "verification": {
+        "status": "verifie",
+        "source": "Loi n° 31-2024 du 8 octobre 2024 portant redéfinition du ressort territorial du département de la Likouala, art. 2, JO n° 42-2024 du 17 octobre 2024, p. 1307",
+        "sourceUrl": "https://sgg.cg/JO/2024/congo-jo-2024-42.pdf",
+        "verifiedAt": "2026-10-31",
+        "verifiedBy": "Deekskn"
+      }
+    },
+    {
+      "id": "nkeni-alima",
+      "nom": "Nkéni-Alima",
+      "chefLieu": "Gamboma",
+      "aliases": [
+        "Nkeni-Alima",
+        "Nkéni Alima",
+        "Nkeni Alima"
+      ],
+      "validFrom": "2024-10-08",
+      "verification": {
+        "status": "verifie",
+        "source": "Loi n° 26-2024 du 8 octobre 2024 portant création du département de la Nkéni-Alima, art. 2 et 3, JO n° 42-2024 du 17 octobre 2024, p. 1305",
+        "sourceUrl": "https://sgg.cg/JO/2024/congo-jo-2024-42.pdf",
+        "verifiedAt": "2026-10-31",
+        "verifiedBy": "Deekskn"
+      }
+    },
+    {
+      "id": "plateaux",
+      "nom": "Plateaux",
+      "chefLieu": "Djambala",
+      "aliases": [
+        "Les Plateaux"
+      ],
+      "verification": {
+        "status": "verifie",
+        "source": "Loi n° 32-2024 du 8 octobre 2024 portant redéfinition du ressort territorial du département des Plateaux, art. 2, JO n° 42-2024 du 17 octobre 2024, p. 1307",
+        "sourceUrl": "https://sgg.cg/JO/2024/congo-jo-2024-42.pdf",
+        "verifiedAt": "2026-10-31",
+        "verifiedBy": "Deekskn"
+      }
+    },
+    {
+      "id": "pointe-noire",
+      "nom": "Pointe-Noire",
+      "chefLieu": "Pointe-Noire",
+      "aliases": [
+        "Pte-Noire",
+        "Pointe Noire",
+        "PN"
+      ],
+      "verification": {
+        "status": "verifie",
+        "source": "Loi n° 11-2003 du 6 février 2003 portant statut particulier de la ville de Brazzaville et de la ville de Pointe-Noire, art. 1 et 2",
+        "sourceUrl": "https://www.unicongo.cg/wp-content/uploads/2023/03/Loi-n%C2%B011-2003_2003_administration-territoire_statut-particulier-brazzaville-pointe-noire.pdf",
+        "verifiedAt": "2026-10-31",
+        "verifiedBy": "Deekskn",
+        "note": "Référence au Journal officiel de la loi 11-2003 à compléter."
+      }
+    },
+    {
+      "id": "pool",
+      "nom": "Pool",
+      "chefLieu": "Kinkala",
+      "aliases": [
+        "Le Pool"
+      ],
+      "verification": {
+        "status": "verifie",
+        "source": "Loi n° 33-2024 du 8 octobre 2024 portant redéfinition du ressort territorial du département du Pool, art. 2, JO n° 42-2024 du 17 octobre 2024, p. 1308",
+        "sourceUrl": "https://sgg.cg/JO/2024/congo-jo-2024-42.pdf",
+        "verifiedAt": "2026-10-31",
+        "verifiedBy": "Deekskn"
+      }
+    },
+    {
+      "id": "bouenza",
+      "nom": "Bouenza",
+      "chefLieu": "Madingou",
+      "aliases": [
+        "La Bouenza"
+      ],
+      "verification": {
+        "status": "a_verifier",
+        "note": "Texte officiel énumérant ce département non trouvé. Chef-lieu relevé dans des sources secondaires (non valides pour ce projet), à confirmer."
+      }
+    },
+    {
+      "id": "cuvette-ouest",
+      "nom": "Cuvette-Ouest",
+      "chefLieu": "Ewo",
+      "aliases": [
+        "La Cuvette-Ouest",
+        "Cuvette Ouest"
+      ],
+      "verification": {
+        "status": "a_verifier",
+        "note": "Texte officiel non trouvé (une loi de 1995 est évoquée par une source secondaire). Chef-lieu à confirmer."
+      }
+    },
+    {
+      "id": "lekoumou",
+      "nom": "Lékoumou",
+      "chefLieu": "Sibiti",
+      "aliases": [
+        "Lekoumou",
+        "La Lékoumou"
+      ],
+      "verification": {
+        "status": "a_verifier",
+        "note": "Texte officiel énumérant ce département non trouvé. Chef-lieu à confirmer."
+      }
+    },
+    {
+      "id": "niari",
+      "nom": "Niari",
+      "chefLieu": "Dolisie",
+      "aliases": [
+        "Le Niari"
+      ],
+      "verification": {
+        "status": "a_verifier",
+        "note": "Texte officiel énumérant ce département non trouvé. Chef-lieu à confirmer."
+      }
+    },
+    {
+      "id": "sangha",
+      "nom": "Sangha",
+      "chefLieu": "Ouesso",
+      "aliases": [
+        "La Sangha"
+      ],
+      "verification": {
+        "status": "a_verifier",
+        "note": "Texte officiel énumérant ce département non trouvé. Chef-lieu à confirmer."
+      }
+    }
+  ]
 };
 
 export const numerotation: NumerotationFile = {
