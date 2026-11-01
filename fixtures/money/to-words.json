@@ -1,6 +1,6 @@
 {
   "function": "money.toWords",
-  "status": "pending",
+  "status": "active",
   "description": "Amount in words, French traditional spelling by default. Turn status to `active` in the PR that implements it (issue #10).",
   "cases": [
     { "name": "zero", "input": 0, "expected": "zéro franc CFA" },
@@ -32,6 +32,15 @@
     { "name": "1990 spelling: hyphens everywhere", "input": 125000, "options": { "orthographe": "1990" }, "expected": "cent-vingt-cinq-mille francs CFA" },
     { "name": "1990 spelling: vingt-et-un", "input": 21, "options": { "orthographe": "1990" }, "expected": "vingt-et-un francs CFA" },
     { "name": "1990 spelling: deux-cents", "input": 200, "options": { "orthographe": "1990" }, "expected": "deux-cents francs CFA" },
+    { "name": "cent quatre-vingts at the end keeps s", "input": 180, "expected": "cent quatre-vingts francs CFA" },
+    { "name": "cent quatre-vingt before mille", "input": 180000, "expected": "cent quatre-vingt mille francs CFA" },
+    { "name": "largest amount below a million", "input": 999999, "expected": "neuf cent quatre-vingt-dix-neuf mille neuf cent quatre-vingt-dix-neuf francs CFA" },
+    { "name": "million followed by un, no de", "input": 1000001, "expected": "un million un francs CFA" },
+    { "name": "quatre-vingts before millions keeps s", "input": 80000000, "expected": "quatre-vingts millions de francs CFA" },
+    { "name": "deux cents before millions keeps s", "input": 200000000, "expected": "deux cents millions de francs CFA" },
+    { "name": "1990 spelling: millions stay apart", "input": 2500000, "options": { "orthographe": "1990" }, "expected": "deux millions cinq-cent-mille francs CFA" },
+    { "name": "above the supported maximum throws", "input": 1000000000000, "expectedError": true },
+    { "name": "string throws", "input": "12", "expectedError": true },
     { "name": "negative throws", "input": -5, "expectedError": true },
     { "name": "decimals throw", "input": 12.5, "expectedError": true }
   ]

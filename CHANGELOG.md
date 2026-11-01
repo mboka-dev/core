@@ -4,6 +4,9 @@ Toutes les évolutions notables sont consignées ici. Format inspiré de [Keep a
 
 ## [Non publié]
 
+### Ajouté
+- `money.toWords` / `money.to_words` : montant en lettres en français (orthographe traditionnelle par défaut, option `orthographe: '1990'`), de 0 à 999 999 999 999 (#10).
+
 ## [0.0.1] - 26 Oct. 2026
 
 ### Ajouté

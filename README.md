@@ -30,6 +30,7 @@ phone.parse('06 123 45 67');
 
 money.format(125000);            // '125 000 FCFA' (espace fine insécable)
 money.format(125000, { label: 'XAF' }); // '125 000 XAF'
+money.toWords(125000);           // 'cent vingt-cinq mille francs CFA'
 
 geo.departements();              // liste des départements
 geo.find('Pte-Noire');           // entrée correspondante, variantes tolérées
@@ -44,6 +45,7 @@ from mboka import phone, money, geo, text
 
 phone.parse("+242 06 123 45 67")["e164"]   # '+242061234567'
 money.format(125000)                        # '125 000 FCFA'
+money.to_words(80)                          # 'quatre-vingts francs CFA'
 df["ville"] = df["ville_saisie"].map(geo.normalize_name)
 ```
 
@@ -53,7 +55,7 @@ df["ville"] = df["ville_saisie"].map(geo.normalize_name)
 |---|---|---|
 | `phone` | `parse`, `isValid`, `format` | v0.1 |
 | `money` | `format` | v0.1 |
-| `money` | `toWords` (montant en lettres) | en cours, voir les issues |
+| `money` | `toWords` (montant en lettres) | v0.2 |
 | `geo` | `departements`, `communes`, `arrondissements`, `find` | v0.1 (exact), recherche floue en cours |
 | `text` | `normalize` | v0.1 |
 
