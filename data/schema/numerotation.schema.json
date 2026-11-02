@@ -27,6 +27,35 @@
           "operator": { "type": "string" },
           "mobileMoney": { "type": "string", "description": "Mobile money service tied to the operator (v0.4)" },
           "note": { "type": "string" },
+          "verification": { "$ref": "common.schema.json#/$defs/verification" },
+          "ranges": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["start", "end"],
+              "additionalProperties": false,
+              "properties": {
+                "start": { "type": "string", "pattern": "^[0-9]{9}$" },
+                "end": { "type": "string", "pattern": "^[0-9]{9}$" }
+              }
+            },
+            "description": "Plages exactes de numéros nationaux à neuf chiffres lorsque le préfixe seul est trop large."
+          }
+        }
+      }
+    },
+    "specialNumbers": {
+      "type": "array",
+      "description": "Numéros courts de service, distincts des numéros nationaux à 9 chiffres parsés par phone.parse.",
+      "items": {
+        "type": "object",
+        "required": ["code", "type", "description", "verification"],
+        "additionalProperties": false,
+        "properties": {
+          "code": { "type": "string", "pattern": "^(?:[0-9]{3}|[0-9]{2}XXX)$" },
+          "type": { "enum": ["customer_service", "public_service", "reserved", "value_added"] },
+          "description": { "type": "string", "minLength": 1 },
           "verification": { "$ref": "common.schema.json#/$defs/verification" }
         }
       }

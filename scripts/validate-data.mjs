@@ -92,11 +92,23 @@ for (const c of loaded.communes?.items ?? []) {
 for (const a of loaded.arrondissements?.items ?? []) {
   if (!communeIds.has(a.commune)) errors.push(`data/geo/arrondissements.json: "${a.id}" points to unknown commune "${a.commune}"`);
 }
-const prefixes = (loaded.numerotation?.prefixes ?? []).map((p) => p.prefix);
+const phonePrefixes = loaded.numerotation?.prefixes ?? [];
+const prefixes = phonePrefixes.map((p) => p.prefix);
 for (const p of prefixes) {
   if (prefixes.some((other) => other !== p && other.startsWith(p))) {
     errors.push(`data/phone/numerotation.json: prefix "${p}" overlaps a longer prefix; keep prefixes unambiguous`);
   }
+}
+for (const entry of phonePrefixes) {
+  for (const range of entry.ranges ?? []) {
+    if (!range.start.startsWith(entry.prefix) || !range.end.startsWith(entry.prefix) || range.start > range.end) {
+      errors.push(`data/phone/numerotation.json: invalid range for prefix "${entry.prefix}" (${range.start}–${range.end})`);
+    }
+  }
+}
+const specialNumbers = (loaded.numerotation?.specialNumbers ?? []).map((item) => item.code);
+if (new Set(specialNumbers).size !== specialNumbers.length) {
+  errors.push('data/phone/numerotation.json: duplicate special number');
 }
 
 if (pending.length) {

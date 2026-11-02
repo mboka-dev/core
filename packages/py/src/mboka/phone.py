@@ -70,7 +70,17 @@ def parse(value: str) -> ParsedPhone:
     if len(national) != length:
         return _invalid(value, "length")
 
-    prefix = next((p for p in plan["prefixes"] if national.startswith(p["prefix"])), None)
+    prefix = next(
+        (
+            p for p in plan["prefixes"]
+            if national.startswith(p["prefix"])
+            and (
+                "ranges" not in p
+                or any(item["start"] <= national <= item["end"] for item in p["ranges"])
+            )
+        ),
+        None,
+    )
     if prefix is None:
         return _invalid(value, "unknown_prefix")
 

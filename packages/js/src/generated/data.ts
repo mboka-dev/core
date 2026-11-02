@@ -23,17 +23,63 @@ export const numerotation: NumerotationFile = {
     2
   ],
   "verification": {
-    "status": "a_verifier",
-    "note": "Bootstrap value. To be confirmed against the national numbering plan published by the regulator (issue #2)."
+    "status": "verifie",
+    "source": "UIT, Plan de numérotage national du Congo (+242), version publiée le 13 décembre 2024, p. 1 et 7–11 : longueur nationale et format international.",
+    "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+    "verifiedAt": "2026-11-01",
+    "verifiedBy": "jorivas021",
+    "note": "La longueur nationale de 9 chiffres et le groupement +242 XX XXX XX XX ([2, 3, 2, 2]) sont confirmés. Les plages mobiles partielles 02 de Congo Telecom sont représentées comme plages exactes, et non comme préfixe générique. Le document UIT 2024 contient toutefois une incohérence entre la communication d'attribution détaillée de 2020 (p. 3) et son tableau récapitulatif de structure (p. 10) concernant les codes 02 ; cette attribution reste donc à faire confirmer."
   },
   "prefixes": [
     {
-      "prefix": "06",
+      "prefix": "01",
       "type": "mobile",
-      "operator": "MTN",
+      "operator": "Equateur Telecom Congo (historique)",
       "verification": {
         "status": "a_verifier",
-        "note": "Bootstrap value, see issue #2."
+        "source": "UIT, Plan de numérotage national du Congo (+242), structure du plan, p. 11 ; attribution historique à Equateur Telecom Congo.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "note": "Le plan historique rattache 01 à Equateur Telecom Congo. L'annexe du plan 2024 indique une réservation pour cette société, tandis que la structure des services courts utilise aussi la tranche 1xx. L'affectation opérationnelle actuelle doit être confirmée par une décision récente de l'ARPCE."
+      }
+    },
+    {
+      "prefix": "02",
+      "type": "mobile",
+      "operator": "Congo Telecom",
+      "ranges": [
+        {
+          "start": "024000000",
+          "end": "024099999"
+        },
+        {
+          "start": "025500000",
+          "end": "025899999"
+        },
+        {
+          "start": "026000000",
+          "end": "026159999"
+        },
+        {
+          "start": "026660000",
+          "end": "026999999"
+        }
+      ],
+      "verification": {
+        "status": "a_verifier",
+        "source": "UIT, Plan de numérotage national du Congo (+242), communication de l'ARPCE du 24 septembre 2020, p. 3 : blocs mobiles attribués à Congo Telecom.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "note": "Les plages publiées sont 02 400 00 00–02 409 99 99, 02 550 00 00–02 589 99 99, 02 600 00 00–02 615 99 99 et 02 666 00 00–02 699 99 99. L'annexe de structure du même document marque certains codes 02 comme réservés (p. 10), ce qui crée une incohérence à faire confirmer. Seules les plages détaillées sont acceptées."
+      }
+    },
+    {
+      "prefix": "04",
+      "type": "mobile",
+      "operator": "Warid Congo (historique)",
+      "verification": {
+        "status": "a_verifier",
+        "source": "ARPCE, communiqué « Fin de la cohabitation entre les deux plans de numérotation téléphonique », 17 décembre 2010.",
+        "sourceUrl": "https://www.arpce.cg/upload/publications/fin-cohabitation-entre-les-deux-plans-de-numerotations-telephoniques-2.pdf",
+        "note": "Préfixe historiquement attribué à Warid Congo. Aucune source récente consultée ne confirme son attribution ou son opérateur commercial actuel ; ne pas interpréter cette mention historique comme une attribution actuelle."
       }
     },
     {
@@ -42,7 +88,276 @@ export const numerotation: NumerotationFile = {
       "operator": "Airtel",
       "verification": {
         "status": "a_verifier",
-        "note": "Bootstrap value, see issue #2."
+        "source": "ARPCE, communiqué « Fin de la cohabitation entre les deux plans de numérotation téléphonique », 17 décembre 2010 ; ARPCE, actualité du 27 mars 2025 sur les opérateurs mobiles.",
+        "sourceUrl": "https://www.arpce.cg/upload/publications/fin-cohabitation-entre-les-deux-plans-de-numerotations-telephoniques-2.pdf",
+        "note": "Le préfixe 05 est historiquement attribué à Airtel (Celtel/Zain selon les documents de l'époque) et Airtel est encore cité par l'ARPCE parmi les opérateurs mobiles en 2025. Une décision récente confirmant l'attribution actuelle de toute la plage 05 n'a pas été trouvée."
+      }
+    },
+    {
+      "prefix": "06",
+      "type": "mobile",
+      "operator": "MTN Congo",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de numérotage national du Congo (+242), communication de l'ARPCE du 1er novembre 2024, p. 1 (plage 06 100 00 00–06 199 99 99), et plan historique p. 7–11 (préfixe mobile 06 attribué à MTN-Congo).",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021",
+        "note": "La source confirme au minimum la plage 06 100 00 00–06 199 99 99. Le préfixe général 06 est conservé pour compatibilité avec les autres numéros historiques du plan ; la validation des sous-plages exactes nécessiterait un modèle de plages."
+      }
+    },
+    {
+      "prefix": "2221",
+      "type": "fixe",
+      "note": "Zone géographique fixe : Équateur 1 (Bassin et Ouest du Bassin).",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de numérotage national du Congo (+242), p. 7–8 : indicatif géographique fixe 22 21.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
+      }
+    },
+    {
+      "prefix": "2222",
+      "type": "fixe",
+      "note": "Zone géographique fixe : Équateur 2 (Sangha et Likouala).",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de numérotage national du Congo (+242), p. 7–8 : indicatif géographique fixe 22 22.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
+      }
+    },
+    {
+      "prefix": "2223",
+      "type": "fixe",
+      "note": "Zone géographique fixe : Centre 2 (Pool).",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de numérotage national du Congo (+242), p. 7–8 : indicatif géographique fixe 22 23.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
+      }
+    },
+    {
+      "prefix": "2224",
+      "type": "fixe",
+      "note": "Zone géographique fixe : Centre 3 (Plateaux).",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de numérotage national du Congo (+242), p. 7–8 : indicatif géographique fixe 22 24.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
+      }
+    },
+    {
+      "prefix": "2225",
+      "type": "fixe",
+      "note": "Zone géographique fixe : Atlantique 2 (Niari, Lékoumou et Bouenza).",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de numérotage national du Congo (+242), p. 7–8 : indicatif géographique fixe 22 25.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
+      }
+    },
+    {
+      "prefix": "2228",
+      "type": "fixe",
+      "note": "Zone géographique fixe : Centre 1 (Brazzaville).",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de numérotage national du Congo (+242), p. 7–8 : indicatif géographique fixe 22 28.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
+      }
+    },
+    {
+      "prefix": "2229",
+      "type": "fixe",
+      "note": "Zone géographique fixe : Atlantique 1 (Pointe-Noire et Kouilou).",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de numérotage national du Congo (+242), p. 7–8 : indicatif géographique fixe 22 29.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
+      }
+    }
+  ],
+  "specialNumbers": [
+    {
+      "type": "customer_service",
+      "description": "Service clientèle des opérateurs mobiles.",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de codetage national du Congo (+242), p. 8 : 111, service clientèle mobile.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
+      },
+      "code": "111"
+    },
+    {
+      "type": "public_service",
+      "description": "Gendarmerie / force de police (constabulary).",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de codetage national du Congo (+242), p. 8 : 112, constabulary.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
+      },
+      "code": "112"
+    },
+    {
+      "type": "public_service",
+      "description": "Ligne d'aide à l'enfance.",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de codetage national du Congo (+242), p. 8 : 116, child helpline.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
+      },
+      "code": "116"
+    },
+    {
+      "type": "public_service",
+      "description": "Police.",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de codetage national du Congo (+242), p. 8 : 117, police.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
+      },
+      "code": "117"
+    },
+    {
+      "type": "public_service",
+      "description": "Sapeurs-pompiers.",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de codetage national du Congo (+242), p. 8 : 118, firemen.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
+      },
+      "code": "118"
+    },
+    {
+      "type": "reserved",
+      "description": "Numéro court réservé pour une utilisation future.",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de codetage national du Congo (+242), p. 8 : 110, 113, 114, 115 et 119 réservés.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
+      },
+      "code": "110"
+    },
+    {
+      "type": "reserved",
+      "description": "Numéro court réservé pour une utilisation future.",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de codetage national du Congo (+242), p. 8 : 110, 113, 114, 115 et 119 réservés.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
+      },
+      "code": "113"
+    },
+    {
+      "type": "reserved",
+      "description": "Numéro court réservé pour une utilisation future.",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de codetage national du Congo (+242), p. 8 : 110, 113, 114, 115 et 119 réservés.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
+      },
+      "code": "114"
+    },
+    {
+      "type": "reserved",
+      "description": "Numéro court réservé pour une utilisation future.",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de codetage national du Congo (+242), p. 8 : 110, 113, 114, 115 et 119 réservés.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
+      },
+      "code": "115"
+    },
+    {
+      "type": "reserved",
+      "description": "Numéro court réservé pour une utilisation future.",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de codetage national du Congo (+242), p. 8 : 110, 113, 114, 115 et 119 réservés.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
+      },
+      "code": "119"
+    },
+    {
+      "code": "30XXX",
+      "type": "value_added",
+      "description": "Code court à cinq chiffres pour les services à valeur ajoutée sur mobile.",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de numérotage national du Congo (+242), p. 8 : code court 30XXX pour les services à valeur ajoutée mobiles.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
+      }
+    },
+    {
+      "code": "31XXX",
+      "type": "value_added",
+      "description": "Code court à cinq chiffres pour les services à valeur ajoutée sur mobile.",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de numérotage national du Congo (+242), p. 8 : code court 31XXX pour les services à valeur ajoutée mobiles.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
+      }
+    },
+    {
+      "code": "35XXX",
+      "type": "value_added",
+      "description": "Code court à cinq chiffres pour les services à valeur ajoutée sur mobile.",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de numérotage national du Congo (+242), p. 8 : code court 35XXX pour les services à valeur ajoutée mobiles.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
+      }
+    },
+    {
+      "code": "39XXX",
+      "type": "value_added",
+      "description": "Code court à cinq chiffres pour les services à valeur ajoutée sur mobile.",
+      "verification": {
+        "status": "verifie",
+        "source": "UIT, Plan de numérotage national du Congo (+242), p. 8 : code court 39XXX pour les services à valeur ajoutée mobiles.",
+        "sourceUrl": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+        "verifiedAt": "2026-11-01",
+        "verifiedBy": "jorivas021"
       }
     }
   ]

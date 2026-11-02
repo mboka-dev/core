@@ -41,12 +41,25 @@ export interface Arrondissement extends Validity {
   verification: Verification;
 }
 
+export interface PhoneNumberRange {
+  start: string;
+  end: string;
+}
+
 export interface PhonePrefix {
   prefix: string;
+  ranges?: PhoneNumberRange[];
   type: 'mobile' | 'fixe' | 'special';
   operator?: string;
   mobileMoney?: string;
   note?: string;
+  verification: Verification;
+}
+
+export interface SpecialNumber {
+  code: string;
+  type: 'customer_service' | 'public_service' | 'reserved' | 'value_added';
+  description: string;
   verification: Verification;
 }
 
@@ -59,4 +72,5 @@ export interface NumerotationFile {
   nationalGrouping?: number[];
   verification: Verification;
   prefixes: PhonePrefix[];
+  specialNumbers?: SpecialNumber[];
 }

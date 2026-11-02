@@ -61,7 +61,10 @@ export function parse(input: string): ParsedPhone {
 
   if (national.length !== length) return invalid(input, 'length');
 
-  const prefix = plan.prefixes.find((p) => national.startsWith(p.prefix));
+  const prefix = plan.prefixes.find((p) => {
+    if (!national.startsWith(p.prefix)) return false;
+    return !p.ranges || p.ranges.some((range) => national >= range.start && national <= range.end);
+  });
   if (!prefix) return invalid(input, 'unknown_prefix');
 
   const grouped = group(national);
