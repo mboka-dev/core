@@ -1,4 +1,18 @@
 {
   "$schema": "../schema/communes.schema.json",
-  "items": []
+  "items": [
+    {
+      "id": "pointe-noire",
+      "nom": "Pointe-Noire",
+      "departement": "pointe-noire",
+      "aliases": [],
+      "verification": {
+        "status": "verifie",
+        "source": "Loi n° 17-2011 du 17 mai 2011 portant redéfinition des limites de la commune de Pointe-Noire, art. 1, Journal officiel n° 21-2011 du 26 mai 2011, p. 589",
+        "sourceUrl": "https://www.sgg.cg/JO/2011/congo-jo-2011-21.pdf",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "Christ-Moungabio"
+      }
+    }
+  ]
 }

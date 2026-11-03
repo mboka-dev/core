@@ -19,3 +19,7 @@ test('unknown or empty names return null', () => {
   assert.equal(geo.find('   '), null);
   assert.equal(geo.normalizeName('Atlantis'), null);
 });
+
+test('Pointe-Noire is both a département and a commune', () => {
+  assert.deepEqual(geo.findAll('Pointe-Noire').map((m) => m.level), ['departement', 'commune']);
+});

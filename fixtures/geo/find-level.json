@@ -1,0 +1,10 @@
+{
+  "function": "geo.find",
+  "status": "active",
+  "description": "The level option separates the Pointe-Noire département from the commune.",
+  "cases": [
+    { "name": "commune level", "input": "Pointe-Noire", "options": { "level": "commune" }, "expected": { "level": "commune", "id": "pointe-noire", "departement": "pointe-noire" } },
+    { "name": "departement level", "input": "Pointe-Noire", "options": { "level": "departement" }, "expected": { "level": "departement", "id": "pointe-noire" } },
+    { "name": "arrondissement alias", "input": "Lumumba", "options": { "level": "arrondissement" }, "expected": { "nom": "Emery Patrice Lumumba", "numero": 1 } }
+  ]
+}

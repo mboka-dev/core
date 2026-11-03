@@ -17,3 +17,7 @@ def test_unknown_or_empty_names_return_none():
     assert geo.find("Atlantis") is None
     assert geo.find("   ") is None
     assert geo.normalize_name("Atlantis") is None
+
+
+def test_pointe_noire_is_both_departement_and_commune():
+    assert [m["level"] for m in geo.find_all("Pointe-Noire")] == ["departement", "commune"]
