@@ -2,11 +2,117 @@
 import type { DepartementsFile, CommunesFile, ArrondissementsFile, NumerotationFile } from '../types.js';
 
 export const arrondissements: ArrondissementsFile = {
-  "items": []
+  "items": [
+    {
+      "id": "pointe-noire-emery-patrice-lumumba",
+      "nom": "Emery Patrice Lumumba",
+      "numero": 1,
+      "commune": "pointe-noire",
+      "aliases": [
+        "Lumumba"
+      ],
+      "verification": {
+        "status": "verifie",
+        "source": "Loi n° 16-2011 du 17 mai 2011 portant modification des limites des arrondissements 1, 3 et 4 de la commune de Pointe-Noire, art. 1, Journal officiel n° 21-2011 du 26 mai 2011, p. 588",
+        "sourceUrl": "https://www.sgg.cg/JO/2011/congo-jo-2011-21.pdf",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "Christ-Moungabio"
+      }
+    },
+    {
+      "id": "pointe-noire-mvou-mvou",
+      "nom": "Mvou-Mvou",
+      "numero": 2,
+      "commune": "pointe-noire",
+      "aliases": [
+        "Mvoumvou"
+      ],
+      "verification": {
+        "status": "verifie",
+        "source": "Loi n° 43-2025 du 31 décembre 2025 modifiant et complétant certaines dispositions de la loi n° 9-2001 du 10 décembre 2001 portant loi électorale modifiée, Journal officiel n° 8-2026 du 19 février 2026, p. 168",
+        "sourceUrl": "https://sgg.cg/JO/2026/congo-jo-2026-8.pdf",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "Christ-Moungabio",
+        "note": "Même nom dans l'arrêté n° 4675 du 4 juillet 2017, Journal officiel n° 27-2017, p. 750."
+      }
+    },
+    {
+      "id": "pointe-noire-tie-tie",
+      "nom": "Tié-Tié",
+      "numero": 3,
+      "commune": "pointe-noire",
+      "aliases": [],
+      "verification": {
+        "status": "verifie",
+        "source": "Loi n° 16-2011 du 17 mai 2011 portant modification des limites des arrondissements 1, 3 et 4 de la commune de Pointe-Noire, art. 2, Journal officiel n° 21-2011 du 26 mai 2011, p. 588",
+        "sourceUrl": "https://www.sgg.cg/JO/2011/congo-jo-2011-21.pdf",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "Christ-Moungabio"
+      }
+    },
+    {
+      "id": "pointe-noire-loandjili",
+      "nom": "Loandjili",
+      "numero": 4,
+      "commune": "pointe-noire",
+      "aliases": [],
+      "verification": {
+        "status": "verifie",
+        "source": "Loi n° 16-2011 du 17 mai 2011 portant modification des limites des arrondissements 1, 3 et 4 de la commune de Pointe-Noire, art. 3, Journal officiel n° 21-2011 du 26 mai 2011, p. 588",
+        "sourceUrl": "https://www.sgg.cg/JO/2011/congo-jo-2011-21.pdf",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "Christ-Moungabio"
+      }
+    },
+    {
+      "id": "pointe-noire-mongo-mpoukou",
+      "nom": "Mongo-Mpoukou",
+      "numero": 5,
+      "commune": "pointe-noire",
+      "aliases": [
+        "Mongo Poukou"
+      ],
+      "verification": {
+        "status": "verifie",
+        "source": "Loi n° 15-2011 du 17 mai 2011 portant création des arrondissements n° 5 Mongo-Mpoukou et n° 6 Ngoyo dans la commune de Pointe-Noire, art. 1, Journal officiel n° 21-2011 du 26 mai 2011, p. 587",
+        "sourceUrl": "https://www.sgg.cg/JO/2011/congo-jo-2011-21.pdf",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "Christ-Moungabio"
+      }
+    },
+    {
+      "id": "pointe-noire-ngoyo",
+      "nom": "Ngoyo",
+      "numero": 6,
+      "commune": "pointe-noire",
+      "aliases": [],
+      "verification": {
+        "status": "verifie",
+        "source": "Loi n° 15-2011 du 17 mai 2011 portant création des arrondissements n° 5 Mongo-Mpoukou et n° 6 Ngoyo dans la commune de Pointe-Noire, art. 1, Journal officiel n° 21-2011 du 26 mai 2011, p. 587",
+        "sourceUrl": "https://www.sgg.cg/JO/2011/congo-jo-2011-21.pdf",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "Christ-Moungabio"
+      }
+    }
+  ]
 };
 
 export const communes: CommunesFile = {
-  "items": []
+  "items": [
+    {
+      "id": "pointe-noire",
+      "nom": "Pointe-Noire",
+      "departement": "pointe-noire",
+      "aliases": [],
+      "verification": {
+        "status": "verifie",
+        "source": "Loi n° 17-2011 du 17 mai 2011 portant redéfinition des limites de la commune de Pointe-Noire, art. 1, Journal officiel n° 21-2011 du 26 mai 2011, p. 589",
+        "sourceUrl": "https://www.sgg.cg/JO/2011/congo-jo-2011-21.pdf",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "Christ-Moungabio"
+      }
+    }
+  ]
 };
 
 export const departements: DepartementsFile = {
